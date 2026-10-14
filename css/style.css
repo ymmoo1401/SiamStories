@@ -1,0 +1,1780 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+    --brown: #76502f;
+    --brown2: #9b6a3d;
+    --cream: #f7f0e6;
+    --paper: #fffdf9;
+    --ink: #2d2925;
+    --muted: #756f68;
+    --gold: #d49a38;
+    --blue: #1769a8;
+    --teal: #159b93;
+    --green: #2c9b83;
+    --line: #e3d8c9;
+    --shadow: 0 10px 28px rgba(80, 55, 35, .12)
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Page Transitions */
+@view-transition {
+    navigation: auto;
+}
+
+@keyframes pageFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Prompt', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.site {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    background: var(--paper);
+    min-height: 100vh;
+    box-shadow: none;
+    overflow-x: clip;
+    animation: pageFadeIn 0.35s ease-out;
+}
+
+body.page-fading-out .site {
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.24s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 max(32px, calc((100% - 1380px) / 2));
+    border-bottom: 1px solid rgba(227, 216, 201, 0.85);
+    background: rgba(255, 253, 249, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 10px rgba(80, 55, 35, 0.04);
+    transition: background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav.is-scrolled {
+    background: rgba(255, 253, 249, 0.94) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border-bottom: 1px solid rgba(212, 154, 56, 0.35) !important;
+    box-shadow: 0 8px 28px rgba(80, 55, 35, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Golden Hairline Accent at Top of Nav */
+.nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, #c48e3a 0%, #f7e0a4 25%, #d49a38 50%, #f7e0a4 75%, #c48e3a 100%);
+    background-size: 200% 100%;
+    animation: navGoldFlow 7s linear infinite;
+    z-index: 10;
+}
+
+@keyframes navGoldFlow {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* Brand Logo */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    color: var(--brown);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 1;
+    color: #c48e3a;
+    background: linear-gradient(135deg, rgba(212, 154, 56, 0.14), rgba(247, 240, 230, 0.65));
+    border: 1.5px solid rgba(212, 154, 56, 0.35);
+    box-shadow: 0 2px 8px rgba(118, 80, 47, 0.08);
+    transform-origin: center;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                background 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    flex-shrink: 0;
+}
+
+.brand small {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 500;
+    color: #8e8172;
+    margin-top: -2px;
+    letter-spacing: 0.3px;
+    transition: color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                letter-spacing 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.brand:hover {
+    color: var(--brown2);
+    transform: translateY(-1px);
+}
+
+.brand:hover .brand-mark {
+    transform: rotate(90deg) scale(1.1);
+    color: #b87e2b;
+    background: linear-gradient(135deg, rgba(212, 154, 56, 0.28), rgba(255, 255, 255, 0.9));
+    border-color: rgba(212, 154, 56, 0.65);
+    box-shadow: 0 4px 16px rgba(212, 154, 56, 0.35);
+}
+
+.brand:hover small {
+    color: #a07442;
+    letter-spacing: 0.6px;
+}
+
+/* Menu Links */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.menu a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 20px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                background-color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Shimmering Gold Line Underneath */
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 10px;
+    right: 10px;
+    height: 2.5px;
+    background: linear-gradient(90deg, #c48e3a 0%, #fde7a6 50%, #c48e3a 100%);
+    background-size: 200% 100%;
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: center;
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.35s ease;
+}
+
+/* Menu Hover Effect: Frosted Gold Aura Pill + Lift */
+.menu a:hover {
+    color: var(--brown2);
+    background-color: rgba(212, 154, 56, 0.09);
+    transform: translateY(-2px);
+}
+
+.menu a:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+    animation: goldLineShimmer 2s ease infinite;
+}
+
+/* Active Menu: Thai Gold Glass Pill + Glowing Gold Line */
+.menu a.active,
+.menu a[aria-current="page"] {
+    color: var(--brown);
+    font-weight: 600;
+    background-color: rgba(212, 154, 56, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(212, 154, 56, 0.25);
+}
+
+.menu a.active::after,
+.menu a[aria-current="page"]::after {
+    transform: scaleX(1);
+    opacity: 1;
+    box-shadow: 0 1px 6px rgba(212, 154, 56, 0.45);
+}
+
+.menu a.active:hover,
+.menu a[aria-current="page"]:hover {
+    color: #633f20;
+    background-color: rgba(212, 154, 56, 0.18);
+    transform: translateY(-2px);
+}
+
+@keyframes goldLineShimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* Keyboard Focus Accessibility */
+.menu a:focus-visible,
+.brand:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #fffdf9, 0 0 0 4px var(--gold);
+    border-radius: 20px;
+}
+
+.search {
+    font-size: 20px;
+    color: var(--brown);
+    cursor: pointer;
+    transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.search:hover {
+    color: var(--gold);
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   LARGE CINEMATIC REGIONAL HERO BANNERS (MATCHING HOMEPAGE SCALE)
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    min-height: 420px;
+    padding: 72px max(48px, calc((100% - 1380px) / 2));
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+    background: linear-gradient(90deg, rgba(31, 22, 15, .84), rgba(31, 22, 15, .2)), url('https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1600&q=85') center/cover;
+}
+
+.hero.isan,
+.hero.central,
+.hero.east,
+.hero.south {
+    position: relative;
+    min-height: 540px;
+    height: clamp(520px, 66vh, 660px);
+    padding: 0 max(48px, calc((100% - 1380px) / 2));
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    isolation: isolate;
+}
+
+/* Atmospheric Bottom Fade into page content */
+.hero.isan::after,
+.hero.central::after,
+.hero.east::after,
+.hero.south::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, rgba(20, 14, 10, 0.45) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 1. ภาคอีสาน: มนต์เสน่ห์แดนที่ราบสูง (โทนสีชมพู / แดงเบอร์รี่ / มาเจนต้า #8e1e55) */
+.hero.isan {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(26, 10, 20, 0.93) 0%,
+            rgba(34, 14, 26, 0.78) 40%,
+            rgba(142, 30, 85, 0.25) 72%,
+            rgba(18, 8, 14, 0.08) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(20, 8, 16, 0.45) 0%,
+            transparent 42%,
+            rgba(20, 8, 16, 0.65) 100%
+        ),
+        url('../Img/isan-img/อีสานพื้นหลัง.png');
+}
+
+/* 2. ภาคกลาง: อู่ข้าวอู่น้ำ รากฐานแห่งอารยธรรม (โทนสีส้ม / ทองอำพัน #b86a14) */
+.hero.central {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(26, 16, 8, 0.93) 0%,
+            rgba(36, 22, 12, 0.78) 40%,
+            rgba(184, 106, 20, 0.25) 72%,
+            rgba(18, 12, 6, 0.08) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(20, 12, 6, 0.45) 0%,
+            transparent 42%,
+            rgba(20, 12, 6, 0.65) 100%
+        ),
+        url('../Img/central-img/กลางพื้นหลัง.jpg');
+}
+
+/* 3. ภาคเหนือ: ล้านนาและขุนเขาเขียวขจี (โทนสีเขียว / มรกตไพร #037047) */
+.hero.east {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(10, 22, 16, 0.93) 0%,
+            rgba(14, 30, 22, 0.78) 40%,
+            rgba(3, 112, 71, 0.25) 72%,
+            rgba(8, 16, 12, 0.08) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(8, 18, 12, 0.45) 0%,
+            transparent 42%,
+            rgba(8, 18, 12, 0.65) 100%
+        ),
+        url('../Img/east-img/เหนือพื้นหลัง.jpg');
+}
+
+/* 4. ภาคใต้: อันดามันและเกลียวคลื่นมุก (โทนสีน้ำเงินสมุทร #016fa9) */
+.hero.south {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(8, 18, 30, 0.93) 0%,
+            rgba(12, 26, 42, 0.78) 40%,
+            rgba(1, 111, 169, 0.25) 72%,
+            rgba(6, 14, 24, 0.08) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(6, 14, 24, 0.45) 0%,
+            transparent 42%,
+            rgba(6, 14, 24, 0.65) 100%
+        ),
+        url('../Img/south-img/ใต้พื้นหลัง.jpg');
+}
+
+/* ผู้จัดทำ */
+.hero.team {
+    color: #ffffff;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(65, 38, 18, 0.92) 0%,
+            rgba(135, 82, 38, 0.72) 55%,
+            rgba(32, 18, 10, 0.4) 100%
+        ),
+        url('https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1600&q=85');
+}
+
+/* Regional Content Typography & Layout */
+.hero.isan > div,
+.hero.central > div,
+.hero.east > div,
+.hero.south > div,
+.hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    padding: 40px 0;
+}
+
+/* Eyebrow Badges */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    animation: heroFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero.isan .hero-eyebrow {
+    background: rgba(84, 18, 52, 0.7);
+    border: 1px solid rgba(240, 120, 180, 0.5);
+    color: #ffd6eb;
+    box-shadow: 0 2px 12px rgba(142, 30, 85, 0.35);
+}
+
+.hero.central .hero-eyebrow {
+    background: rgba(80, 44, 14, 0.7);
+    border: 1px solid rgba(255, 210, 130, 0.5);
+    color: #ffe6ba;
+    box-shadow: 0 2px 12px rgba(184, 106, 20, 0.35);
+}
+
+.hero.east .hero-eyebrow {
+    background: rgba(14, 52, 32, 0.7);
+    border: 1px solid rgba(110, 230, 170, 0.5);
+    color: #cbfbe2;
+    box-shadow: 0 2px 12px rgba(3, 112, 71, 0.35);
+}
+
+.hero.south .hero-eyebrow {
+    background: rgba(12, 42, 74, 0.7);
+    border: 1px solid rgba(120, 205, 255, 0.5);
+    color: #d0eeff;
+    box-shadow: 0 2px 12px rgba(1, 111, 169, 0.35);
+}
+
+.hero.isan h1,
+.hero.central h1,
+.hero.east h1,
+.hero.south h1 {
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: clamp(38px, 4.8vw, 56px);
+    font-weight: 800;
+    line-height: 1.16;
+    color: #ffffff;
+    margin: 0 0 16px;
+    letter-spacing: -0.015em;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.75);
+    animation: heroFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero.isan p,
+.hero.central p,
+.hero.east p,
+.hero.south p {
+    max-width: 620px;
+    font-size: clamp(15.5px, 1.4vw, 17.5px);
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    animation: heroFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.hero.isan p strong,
+.hero.central p strong,
+.hero.east p strong,
+.hero.south p strong {
+    display: inline-block;
+    font-size: clamp(18px, 1.6vw, 21px);
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+}
+
+.hero.isan p strong {
+    color: #ffd1e6;
+    text-shadow: 0 0 14px rgba(220, 100, 160, 0.65);
+}
+
+.hero.central p strong {
+    color: #ffe6ba;
+    text-shadow: 0 0 14px rgba(255, 200, 120, 0.65);
+}
+
+.hero.east p strong {
+    color: #c8f5dc;
+    text-shadow: 0 0 14px rgba(80, 210, 150, 0.65);
+}
+
+.hero.south p strong {
+    color: #cce9ff;
+    text-shadow: 0 0 14px rgba(96, 190, 245, 0.65);
+}
+
+/* Fallback for other heroes */
+.hero h1 {
+    font-size: 52px;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    font-weight: 800;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+}
+
+.hero p {
+    max-width: 640px;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin: 0 0 24px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   REGIONAL NAVIGATION & BRAND THEMES
+   ========================================================================== */
+
+/* 1. ภาคอีสาน (ชมพู / มาเจนต้า) */
+body.page-isan .nav::before,
+body:has(.hero.isan) .nav::before {
+    background: linear-gradient(90deg, #741444 0%, #d94b8f 25%, #a32868 50%, #f3a6cb 75%, #741444 100%);
+}
+
+body.page-isan .menu a.active,
+body:has(.hero.isan) .menu a.active {
+    color: #741444 !important;
+    background-color: rgba(163, 40, 104, 0.12) !important;
+    box-shadow: inset 0 0 0 1.5px rgba(163, 40, 104, 0.35) !important;
+}
+
+body.page-isan .menu a.active::after,
+body:has(.hero.isan) .menu a.active::after {
+    background: linear-gradient(90deg, #a32868, #d94b8f) !important;
+    box-shadow: 0 1px 6px rgba(163, 40, 104, 0.5) !important;
+}
+
+/* 2. ภาคกลาง (ส้ม / ทองอำพัน) */
+body.page-central .nav::before,
+body:has(.hero.central) .nav::before {
+    background: linear-gradient(90deg, #91500a 0%, #f5a623 25%, #c97418 50%, #fed780 75%, #91500a 100%);
+}
+
+body.page-central .menu a.active,
+body:has(.hero.central) .menu a.active {
+    color: #8c4e09 !important;
+    background-color: rgba(184, 106, 20, 0.12) !important;
+    box-shadow: inset 0 0 0 1.5px rgba(184, 106, 20, 0.35) !important;
+}
+
+body.page-central .menu a.active::after,
+body:has(.hero.central) .menu a.active::after {
+    background: linear-gradient(90deg, #c97418, #f5a623) !important;
+    box-shadow: 0 1px 6px rgba(184, 106, 20, 0.5) !important;
+}
+
+/* 3. ภาคเหนือ (เขียวมรกตไพร) */
+body.page-east .nav::before,
+body:has(.hero.east) .nav::before {
+    background: linear-gradient(90deg, #024d31 0%, #10b981 25%, #058757 50%, #a7f3d0 75%, #024d31 100%);
+}
+
+body.page-east .menu a.active,
+body:has(.hero.east) .menu a.active {
+    color: #025234 !important;
+    background-color: rgba(3, 112, 71, 0.12) !important;
+    box-shadow: inset 0 0 0 1.5px rgba(3, 112, 71, 0.35) !important;
+}
+
+body.page-east .menu a.active::after,
+body:has(.hero.east) .menu a.active::after {
+    background: linear-gradient(90deg, #058757, #10b981) !important;
+    box-shadow: 0 1px 6px rgba(3, 112, 71, 0.5) !important;
+}
+
+/* 4. ภาคใต้ (น้ำเงินสมุทร) */
+body.page-south .nav::before,
+body:has(.hero.south) .nav::before {
+    background: linear-gradient(90deg, #014d77 0%, #38bdf8 25%, #0284c7 50%, #bae6fd 75%, #014d77 100%);
+}
+
+body.page-south .menu a.active,
+body:has(.hero.south) .menu a.active {
+    color: #014d77 !important;
+    background-color: rgba(1, 111, 169, 0.12) !important;
+    box-shadow: inset 0 0 0 1.5px rgba(1, 111, 169, 0.35) !important;
+}
+
+body.page-south .menu a.active::after,
+body:has(.hero.south) .menu a.active::after {
+    background: linear-gradient(90deg, #0284c7, #38bdf8) !important;
+    box-shadow: 0 1px 6px rgba(1, 111, 169, 0.5) !important;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--brown), var(--brown2));
+    color: #fff;
+    padding: 12px 26px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(118, 80, 47, 0.25);
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(118, 80, 47, 0.35);
+}
+
+.hero .btn {
+    background: #ffffff;
+    color: var(--brown);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hero .btn:hover {
+    background: #fffdf9;
+    color: #925827;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   HOMEPAGE INTRO & REGION GRID
+   ========================================================================== */
+
+.home-intro {
+    padding: 34px max(32px, calc((100% - 1380px) / 2)) 14px;
+}
+
+.home-intro h2 {
+    font-size: 24px;
+    color: var(--brown);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.region-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    padding: 0 max(32px, calc((100% - 1380px) / 2)) 40px;
+}
+
+.region-card {
+    position: relative;
+    border: 1.5px solid rgba(214, 186, 150, 0.65);
+    border-radius: 22px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(65, 40, 18, 0.07), 0 2px 8px rgba(65, 40, 18, 0.03);
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.35s ease;
+}
+
+.region-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 55px rgba(75, 45, 20, 0.16), 0 4px 16px rgba(75, 45, 20, 0.05);
+}
+
+.region-img {
+    height: 165px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
+}
+
+.region-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 65%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-25deg);
+    z-index: 2;
+    pointer-events: none;
+    transition: none;
+}
+
+.region-card:hover .region-img::before {
+    left: 210%;
+    transition: left 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.region-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 35%, rgba(25, 16, 9, 0.4) 75%, rgba(25, 16, 9, 0.75) 100%);
+    pointer-events: none;
+}
+
+.region-card:hover .region-img {
+    transform: scale(1.08);
+    filter: brightness(1.03) contrast(1.02);
+}
+
+.region-card h3 {
+    margin: 18px 20px 6px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #2e1f13;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+}
+
+.region-card p {
+    margin: 0 20px 24px;
+    color: #5c4d3e;
+    font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.85;
+}
+
+/* Regional Glow Accents */
+.region-card.isan:hover {
+    border-color: #d83a8b;
+    box-shadow: 0 18px 40px rgba(216, 58, 139, 0.25);
+}
+.region-card.isan:hover h3 {
+    color: #b52271;
+}
+
+.region-card.central:hover {
+    border-color: #df8326;
+    box-shadow: 0 18px 40px rgba(223, 131, 38, 0.25);
+}
+.region-card.central:hover h3 {
+    color: #b85e12;
+}
+
+.region-card.east:hover {
+    border-color: #1fa357;
+    box-shadow: 0 18px 40px rgba(31, 163, 87, 0.25);
+}
+.region-card.east:hover h3 {
+    color: #147a3e;
+}
+
+.region-card.south:hover {
+    border-color: #0e86d4;
+    box-shadow: 0 18px 40px rgba(14, 134, 212, 0.25);
+}
+.region-card.south:hover h3 {
+    color: #0b68a5;
+}
+
+.region-card.isan .region-img {
+    background-image: url('../Img/isan-img/อีสานพื้นหลัง.png');
+}
+
+.region-card.central .region-img {
+    background-image: url('../Img/central-img/กลางพื้นหลัง.jpg');
+}
+
+.region-card.east .region-img {
+    background-image: url('../Img/east-img/เหนือพื้นหลัง.jpg');
+}
+
+.region-card.south .region-img {
+    background-image: url('../Img/south-img/ใต้พื้นหลัง.jpg');
+}
+
+/* ==========================================================================
+   VIBRANT CATEGORY TABS
+   ========================================================================== */
+
+.tabs {
+    display: flex;
+    gap: 12px;
+    padding: 26px max(32px, calc((100% - 1380px) / 2)) 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid #ead8c5;
+    border-radius: 999px;
+    padding: 10px 24px;
+    background: #ffffff;
+    color: #4a3e35;
+    font-weight: 600;
+    font-size: 14.5px;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(80, 55, 35, 0.04);
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tab:hover {
+    border-color: #c48e3a;
+    background: #fffdf9;
+    color: #8c5625;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(187, 135, 80, 0.16);
+}
+
+.tab.active {
+    background: linear-gradient(135deg, #c48e3a, #9d6824);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 18px rgba(187, 135, 80, 0.42);
+    transform: translateY(-1px);
+}
+
+/* Regional dynamic tab colors */
+body.page-central .tab.active,
+.hero.central ~ .tabs .tab.active,
+body:has(.hero.central) .tab.active {
+    background: linear-gradient(135deg, #c97418, #91500a);
+    box-shadow: 0 4px 18px rgba(184, 106, 20, 0.42);
+}
+body.page-central .tab:hover,
+.hero.central ~ .tabs .tab:hover,
+body:has(.hero.central) .tab:hover {
+    border-color: #c97418;
+    color: #91500a;
+    box-shadow: 0 4px 14px rgba(184, 106, 20, 0.18);
+}
+
+body.page-isan .tab.active,
+.hero.isan ~ .tabs .tab.active,
+body:has(.hero.isan) .tab.active {
+    background: linear-gradient(135deg, #a32868, #741444);
+    box-shadow: 0 4px 18px rgba(163, 40, 104, 0.42);
+}
+body.page-isan .tab:hover,
+.hero.isan ~ .tabs .tab:hover,
+body:has(.hero.isan) .tab:hover {
+    border-color: #a32868;
+    color: #741444;
+    box-shadow: 0 4px 14px rgba(163, 40, 104, 0.18);
+}
+
+body.page-east .tab.active,
+.hero.east ~ .tabs .tab.active,
+body:has(.hero.east) .tab.active {
+    background: linear-gradient(135deg, #058757, #024d31);
+    box-shadow: 0 4px 18px rgba(3, 112, 71, 0.42);
+}
+body.page-east .tab:hover,
+.hero.east ~ .tabs .tab:hover,
+body:has(.hero.east) .tab:hover {
+    border-color: #058757;
+    color: #024d31;
+    box-shadow: 0 4px 14px rgba(3, 112, 71, 0.18);
+}
+
+body.page-south .tab.active,
+.hero.south ~ .tabs .tab.active,
+body:has(.hero.south) .tab.active {
+    background: linear-gradient(135deg, #0284c7, #014d77);
+    box-shadow: 0 4px 18px rgba(1, 111, 169, 0.42);
+}
+body.page-south .tab:hover,
+.hero.south ~ .tabs .tab:hover,
+body:has(.hero.south) .tab:hover {
+    border-color: #0284c7;
+    color: #014d77;
+    box-shadow: 0 4px 14px rgba(1, 111, 169, 0.18);
+}
+
+/* ==========================================================================
+   CONTENT & VIBRANT CARDS
+   ========================================================================== */
+
+.content {
+    padding: 12px max(32px, calc((100% - 1380px) / 2)) 45px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0 22px;
+    color: var(--brown);
+}
+
+.section-title span {
+    font-size: 20px;
+    color: var(--gold, #c48e3a);
+    text-shadow: 0 0 12px rgba(196, 142, 58, 0.45);
+    display: inline-flex;
+    align-items: center;
+}
+
+.section-title h2 {
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    letter-spacing: -0.015em;
+    color: #302012;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title:not(:has(span)) h2::before {
+    content: "✦";
+    font-size: 19px;
+    color: var(--gold, #c48e3a);
+    text-shadow: 0 0 12px rgba(196, 142, 58, 0.45);
+}
+
+.section-title h2::after {
+    content: "";
+    display: inline-block;
+    width: 45px;
+    height: 3px;
+    background: linear-gradient(90deg, #c48e3a, transparent);
+    border-radius: 999px;
+    margin-left: 6px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    position: relative;
+    background: #ffffff;
+    border: 1.5px solid rgba(214, 186, 150, 0.65);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(65, 40, 18, 0.07), 0 2px 8px rgba(65, 40, 18, 0.03);
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #cca472;
+    box-shadow: 0 24px 55px rgba(75, 45, 20, 0.16),
+                0 4px 16px rgba(75, 45, 20, 0.05);
+}
+
+.card-img {
+    height: 175px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
+}
+
+.card-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 65%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-25deg);
+    z-index: 2;
+    pointer-events: none;
+    transition: none;
+}
+
+.card:hover .card-img::before {
+    left: 210%;
+    transition: left 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(25, 16, 9, 0.45) 100%);
+    pointer-events: none;
+}
+
+.card:hover .card-img {
+    transform: scale(1.08);
+    filter: brightness(1.03) contrast(1.02);
+}
+
+.card-body {
+    padding: 18px 20px 22px;
+    background: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.card h3 {
+    font-size: 18.5px;
+    font-weight: 700;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    color: #2e1f13;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+    color: #925827;
+}
+
+.card p {
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: #5c4d3e;
+    font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+    margin: 0;
+}
+
+.more {
+    text-align: center;
+    padding: 24px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 24px;
+}
+
+.panel {
+    border: 1px solid rgba(227, 216, 201, 0.85);
+    border-radius: 16px;
+    padding: 24px;
+    background: #ffffff;
+    box-shadow: 0 4px 16px rgba(80, 55, 35, 0.05);
+}
+
+.panel h3 {
+    margin-top: 0;
+    color: var(--brown);
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.fact {
+    background: var(--cream);
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.fact b {
+    display: block;
+    font-size: 12.5px;
+    color: var(--brown);
+}
+
+.fact span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* ==========================================================================
+   TEAM GRID & FOOTER
+   ========================================================================== */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    padding: 24px max(32px, calc((100% - 1380px) / 2)) 58px;
+}
+
+.person {
+    position: relative;
+    border: 1.5px solid rgba(220, 195, 160, 0.75);
+    border-radius: 24px;
+    background: linear-gradient(180deg, #ffffff 0%, #fffdf9 52%, #fbf5eb 100%);
+    padding: 34px 22px 30px;
+    text-align: center;
+    box-shadow: 0 6px 22px rgba(80, 55, 35, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.35s ease;
+    overflow: hidden;
+}
+
+/* Golden Ribbon Accent at Top of Card */
+.person::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3.5px;
+    background: linear-gradient(90deg, #c48e3a 0%, #f7e0a4 50%, #c48e3a 100%);
+    opacity: 0.85;
+    transition: all 0.35s ease;
+}
+
+.person:hover::after {
+    opacity: 1;
+    height: 4.5px;
+    background: linear-gradient(90deg, #d49a38 0%, #ffeec2 50%, #d49a38 100%);
+}
+
+.person::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        transparent
+    );
+    transform: skewX(-25deg);
+    z-index: 2;
+    pointer-events: none;
+    transition: none;
+}
+
+.person:hover::before {
+    left: 200%;
+    transition: left 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.person:hover {
+    transform: translateY(-9px);
+    border-color: #d49a38;
+    box-shadow: 0 22px 48px rgba(80, 55, 35, 0.16), 0 4px 14px rgba(212, 154, 56, 0.14);
+}
+
+.avatar {
+    position: relative;
+    width: 106px;
+    height: 106px;
+    margin: 4px auto 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff9f0 0%, #faecd6 70%, #ebd4b2 100%);
+    border: 3.5px solid #ffffff;
+    outline: 2.5px solid #c48e3a;
+    outline-offset: 3px;
+    box-shadow: 0 8px 24px rgba(160, 105, 35, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #b87e2b;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.4s ease,
+                outline-color 0.3s ease;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.person:hover .avatar img {
+    transform: scale(1.1);
+}
+
+.person:hover .avatar {
+    transform: scale(1.08);
+    outline-color: #d49a38;
+    box-shadow: 0 12px 30px rgba(184, 126, 43, 0.38);
+}
+
+.person h3 {
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #2e2217;
+    margin: 0 0 10px;
+    transition: color 0.3s ease;
+}
+
+.person:hover h3 {
+    color: #9a6220;
+}
+
+.person p {
+    font-size: 12.5px;
+    color: #6d5b4b;
+    line-height: 1.6;
+    margin: 0 auto;
+    background: rgba(246, 237, 222, 0.65);
+    border: 1px solid rgba(227, 216, 201, 0.85);
+    border-radius: 999px;
+    padding: 4px 14px;
+    display: inline-block;
+    box-shadow: inset 0 1px 2px rgba(80, 55, 35, 0.04);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.person:hover p {
+    background: #ffffff;
+    border-color: #cca472;
+}
+
+.person p strong {
+    color: #8c5825;
+    font-weight: 600;
+}
+
+.person .role-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+    padding: 7px 20px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #c48e3a 0%, #9a6220 100%);
+    color: #ffffff;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(255, 230, 175, 0.45);
+    box-shadow: 0 4px 14px rgba(184, 126, 43, 0.28);
+    transition: all 0.35s ease;
+}
+
+.person:hover .role-badge {
+    background: linear-gradient(135deg, #d49a38 0%, #a86c25 100%);
+    box-shadow: 0 6px 20px rgba(184, 126, 43, 0.45);
+    transform: translateY(-2px);
+}
+
+.footer {
+    background: #ede3d6;
+    border-top: 1px solid var(--line);
+    padding: 24px max(32px, calc((100% - 1380px) / 2));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #6d6257;
+}
+
+.footer .brand {
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   FOOTER HERITAGE EMBLEM (ตราสัญลักษณ์มรดกภูมิปัญญาไทย 4 ภาค - สวยงาม ไม่ต้องลิงก์)
+   ========================================================================== */
+.footer-emblem {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 22px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(247, 239, 227, 0.9));
+    border: 1.5px solid rgba(214, 186, 150, 0.7);
+    box-shadow: 0 4px 16px rgba(80, 55, 35, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    font-family: 'Prompt', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #4a331f;
+    letter-spacing: 0.4px;
+    cursor: default;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.35s ease;
+}
+
+/* ลำแสงสะท้อนวิ่งผ่านตราสัญลักษณ์ */
+.footer-emblem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    transition: none;
+}
+
+.footer-emblem:hover::before {
+    left: 210%;
+    transition: left 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.footer-emblem:hover {
+    transform: translateY(-2px);
+    border-color: #c48e3a;
+    box-shadow: 0 8px 24px rgba(118, 80, 47, 0.16), 0 2px 6px rgba(118, 80, 47, 0.06);
+    color: #2e1d0f;
+}
+
+.footer-emblem .emblem-sparkle {
+    color: #c48e3a;
+    font-size: 14px;
+    text-shadow: 0 0 8px rgba(196, 142, 58, 0.5);
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.footer-emblem:hover .emblem-sparkle {
+    transform: scale(1.25) rotate(15deg);
+    color: #d49a38;
+}
+
+.footer-emblem .emblem-title {
+    font-weight: 600;
+    color: #432c18;
+}
+
+.footer-emblem .emblem-dot {
+    color: rgba(196, 142, 58, 0.6);
+    font-size: 15px;
+    line-height: 1;
+}
+
+.footer-emblem .emblem-subtitle {
+    color: #8c6e4e;
+    font-size: 12px;
+}
+
+/* ==========================================================================
+   FOOTER MOTTO ("สำรวจวัฒนธรรมไทย" - คมชัด โดดเด่น สง่างาม)
+   ========================================================================== */
+.footer-motto,
+.footer > span:last-of-type {
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #382515;
+    letter-spacing: 0.35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1.5px solid rgba(214, 186, 150, 0.5);
+    box-shadow: 0 2px 8px rgba(80, 55, 35, 0.04);
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.footer-motto::before,
+.footer > span:last-of-type::before {
+    content: "❖";
+    font-size: 11px;
+    color: #c48e3a;
+    text-shadow: 0 0 8px rgba(196, 142, 58, 0.45);
+    transition: transform 0.35s ease;
+}
+
+.footer-motto:hover,
+.footer > span:last-of-type:hover {
+    color: #8c5625;
+    background: #ffffff;
+    border-color: #cca472;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(118, 80, 47, 0.12);
+}
+
+.footer-motto:hover::before,
+.footer > span:last-of-type:hover::before {
+    transform: rotate(45deg) scale(1.15);
+}
+
+.social {
+    display: none;
+}
+
+@media(max-width:850px) {
+    .nav {
+        padding: 0 16px;
+    }
+
+    .menu {
+        gap: 6px;
+        font-size: 12.5px;
+    }
+
+    .menu a {
+        padding: 6px 10px;
+    }
+
+    .hero {
+        min-height: 320px;
+        padding: 40px 24px
+    }
+
+    .hero h1 {
+        font-size: 36px
+    }
+
+    .region-grid,
+    .cards {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 16px
+    }
+
+    .content,
+    .home-intro {
+        padding-left: 16px;
+        padding-right: 16px
+    }
+}
+
+@media(max-width:560px) {
+    .nav {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 12px 16px 10px;
+        gap: 8px;
+    }
+
+    .menu {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        justify-content: flex-start;
+        gap: 16px;
+        padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu a {
+        padding: 6px 12px;
+        flex-shrink: 0;
+    }
+
+    .menu a::after {
+        left: 8px;
+        right: 8px;
+        bottom: 2px;
+        height: 2px;
+    }
+
+    .hero {
+        min-height: 290px
+    }
+
+    .hero h1 {
+        font-size: 30px
+    }
+
+    .hero p {
+        font-size: 13px
+    }
+
+    .region-grid,
+    .cards,
+    .team-grid {
+        grid-template-columns: 1fr
+    }
+
+    .tabs {
+        padding-left: 16px;
+        padding-right: 16px
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .nav,
+    .brand,
+    .brand-mark,
+    .brand small,
+    .menu a,
+    .menu a::after,
+    .search {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+
+    .menu a:hover::after,
+    .menu a.active::after,
+    .menu a[aria-current="page"]::after {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ==========================================================================
+   BACK TO TOP FLOATING BUTTON
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    right: 26px;
+    bottom: 26px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2.5px solid #c48e3a;
+    box-shadow: 0 6px 22px rgba(184, 126, 43, 0.32), 0 2px 6px rgba(0, 0, 0, 0.08);
+    color: #9a6220;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 990;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(16px) scale(0.86);
+    transition: 
+        opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.28s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease;
+    outline: none;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px) scale(1.12);
+    background: linear-gradient(135deg, #d49a38 0%, #9a6220 100%);
+    color: #ffffff;
+    border-color: #ffd88a;
+    box-shadow: 0 10px 28px rgba(184, 126, 43, 0.48), 0 3px 8px rgba(0, 0, 0, 0.14);
+}
+
+.back-to-top:active {
+    transform: translateY(-1px) scale(0.96);
+    box-shadow: 0 4px 12px rgba(184, 126, 43, 0.3);
+}
+
+.back-to-top:focus-visible {
+    box-shadow: 0 0 0 3.5px rgba(212, 154, 56, 0.5), 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    pointer-events: none;
+    stroke-width: 3.2;
+    transition: transform 0.2s ease;
+}
+
+.back-to-top:hover .back-to-top-icon {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        right: 18px;
+        bottom: 18px;
+        width: 46px;
+        height: 46px;
+    }
+
+    .back-to-top-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION (HAMBURGER MENU)
+   ========================================================================== */
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 10px;
+    background: rgba(255, 253, 249, 0.9);
+    border: 1.5px solid #e3d8c9;
+    cursor: pointer;
+    transition: all 0.28s ease;
+    z-index: 1002;
+}
+
+.nav-toggle:hover {
+    background: #ffffff;
+    border-color: #d49a38;
+    box-shadow: 0 4px 14px rgba(184, 126, 43, 0.25);
+}
+
+.hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2.2px;
+    background: #5a3e22;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(7.2px) rotate(45deg);
+    background: #b87e2b;
+}
+
+.nav-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7.2px) rotate(-45deg);
+    background: #b87e2b;
+}
+
+@media (max-width: 880px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav .menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 253, 249, 0.98);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 2px solid rgba(212, 154, 56, 0.35);
+        box-shadow: 0 16px 36px rgba(80, 55, 35, 0.16);
+        flex-direction: column;
+        padding: 18px 24px 24px;
+        gap: 8px;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.35s ease,
+                    visibility 0.35s ease;
+        z-index: 999;
+    }
+
+    .nav .menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav .menu a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero.isan,
+    .hero.central,
+    .hero.east,
+    .hero.south {
+        min-height: 440px;
+        height: auto;
+        padding: 60px 24px 70px;
+    }
+}
+
+
+

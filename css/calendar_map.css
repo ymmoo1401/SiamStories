@@ -1,0 +1,126 @@
+/* =====================================
+   แผนที่ประเทศไทย แบ่ง 4 ภาค
+===================================== */
+
+.calendar-page {
+    --map-north: #4db36f;   /* ภาคเหนือ: สีเขียวมรกตไพร */
+    --map-isan: #ea6bb5;    /* ภาคอีสาน: สีชมพูเบอร์รี่สดใส */
+    --map-central: #f59e38; /* ภาคกลาง: สีส้มอำพันอบอุ่น */
+    --map-south: #299de8;   /* ภาคใต้: สีน้ำเงินครามทะเลใต้ */
+}
+
+/* ขนาดแผนที่ */
+.calendar-page .map-area .thai-map {
+    display: block;
+    width: 95%;
+    max-width: 520px;
+    height: 90%;
+    max-height: 720px;
+    overflow: visible;
+    filter: drop-shadow(0 14px 20px rgba(99, 63, 41, 0.16));
+}
+
+/* พื้นที่แต่ละภาค */
+.calendar-page .thai-map .region {
+    stroke: #ffffff;
+    stroke-width: 1.4;
+    stroke-linejoin: round;
+    cursor: pointer;
+    transition: filter 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                stroke 0.3s ease,
+                stroke-width 0.3s ease,
+                opacity 0.3s ease;
+}
+
+/* สีแต่ละภาค */
+.calendar-page .thai-map [data-region="north"] {
+    fill: var(--map-north);
+}
+
+.calendar-page .thai-map [data-region="isan"] {
+    fill: var(--map-isan);
+}
+
+.calendar-page .thai-map [data-region="central"] {
+    fill: var(--map-central);
+}
+
+.calendar-page .thai-map [data-region="south"] {
+    fill: var(--map-south);
+}
+
+/* เมื่อชี้เมาส์ */
+.calendar-page .thai-map .region:hover {
+    filter: brightness(1.12) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18));
+    stroke: #ffffff;
+    stroke-width: 2.4;
+}
+
+/* เมื่อเลือกด้วยคีย์บอร์ด */
+.calendar-page .thai-map .region:focus-visible {
+    outline: none;
+    stroke: #ffffff;
+    stroke-width: 2.6;
+    filter: brightness(1.15);
+}
+
+/* ภาคที่ถูกเลือก */
+.calendar-page .thai-map .region.selected {
+    stroke: #ffffff;
+    stroke-width: 2.6;
+    filter: brightness(1.14) saturate(1.22) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.25));
+}
+
+/* ชื่อภาค */
+.calendar-page .thai-map .map-label {
+    font-family: "Prompt", "Kanit", "Noto Sans Thai", sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    fill: #2c2117;
+    stroke: #ffffff;
+    stroke-width: 2.8;
+    stroke-linejoin: round;
+    paint-order: stroke fill;
+    text-anchor: middle;
+    pointer-events: none;
+    letter-spacing: 0.3px;
+}
+
+/* จุดสีบนปุ่มใต้แผนที่ */
+.calendar-page .legend [data-select="north"] .dot {
+    background: var(--map-north);
+}
+
+.calendar-page .legend [data-select="isan"] .dot {
+    background: var(--map-isan);
+}
+
+.calendar-page .legend [data-select="central"] .dot {
+    background: var(--map-central);
+}
+
+.calendar-page .legend [data-select="south"] .dot {
+    background: var(--map-south);
+}
+
+/* มือถือ */
+@media (max-width: 790px) {
+    .calendar-page .map-area .thai-map {
+        height: 455px;
+    }
+}
+
+/* ลดการเคลื่อนไหวตามการตั้งค่าผู้ใช้ */
+@media (prefers-reduced-motion: reduce) {
+    .calendar-page .thai-map .region {
+        transition: none;
+    }
+}
+
+/* ลบกรอบสี่เหลี่ยมเมื่อกดเลือกแผนที่ */
+.calendar-page .thai-map .region,
+.calendar-page .thai-map .region:focus,
+.calendar-page .thai-map .region:focus-visible,
+.calendar-page .thai-map .region:active {
+    outline: none !important;
+}

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIAM STORIES | ปฏิทินประเพณีไทย</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <!-- สไตล์หลักเดียวกับหน้าแรกและหน้า south -->
+    <link rel="stylesheet" href="css/isan.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/user_session.css?v=2">
+
+    <link rel="stylesheet" href="./css/calender_style.css">
+
+    <!-- พื้นหลังและแผนที่ -->
+    <link rel="stylesheet" href="./css/calendar_pattern.css">
+    <link rel="stylesheet" href="./css/calendar_map.css">
+</head>
+
+<body class="calendar-page">
+
+    <main class="site">
+
+        <!-- =====================================
+             NAVIGATION เหมือนหน้า SOUTH
+        ====================================== -->
+        <nav class="nav">
+
+            <a class="brand" href="index.html">
+                <span class="brand-mark">❈</span>
+
+                <span>
+                    SIAM STORIES
+                    <small>รากฐานของความเป็นไทย</small>
+                </span>
+            </a>
+
+            <!-- ค้นหาทั่วเว็บไซต์ -->
+            <div class="site-search" id="siteSearch">
+
+                <div class="search-box">
+
+                    <span class="search-symbol" aria-hidden="true">⌕</span>
+
+                    <input type="search" id="siteSearchInput" placeholder="ค้นหาวัฒนธรรมไทย..."
+                        aria-label="ค้นหาข้อมูลทั้งเว็บไซต์" aria-controls="searchResults" aria-expanded="false"
+                        autocomplete="off">
+
+                </div>
+
+                <div class="search-results" id="searchResults" role="region" aria-label="ผลการค้นหา"></div>
+
+            </div>
+
+            <!-- Hamburger Button for Mobile -->
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="เปิดเมนูนำทาง" aria-expanded="false" aria-controls="mainMenu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <!-- เมนู -->
+            <div class="menu" id="mainMenu">
+
+                <a href="index.html">หน้าแรก</a>
+                <a href="isan.html">ภาคอีสาน</a>
+                <a href="central.html">ภาคกลาง</a>
+                <a href="east.html">ภาคเหนือ</a>
+                <a href="south.html">ภาคใต้</a>
+
+                <a href="calendar.html" class="active" aria-current="page">ปฏิทินประเพณีไทย</a>
+
+                <a href="team.html">ผู้จัดทำ</a>
+                <div class="nav-auth-wrapper">
+                    <a href="admin/login.php" class="user-circle-btn" aria-label="บัญชีผู้ใช้งาน">
+                        <svg class="user-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="user-red-tooltip">บัญชีผู้ใช้งาน</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-- รองรับ calender_script.js เดิม -->
+        <button type="button" id="menu-toggle" hidden aria-label="เปิดเมนู"></button>
+
+        <!-- แบนเนอร์สไลด์อัตโนมัติเหมือนหน้าแรก -->
+        <section class="hero hero-slider-section" id="home-hero" aria-label="ปฏิทินประเพณีไทย">
+
+            <div class="banner-track" aria-hidden="true"></div>
+
+            <div class="banner-shade" aria-hidden="true"></div>
+
+            <div class="banner-content">
+
+                <span class="hero-eyebrow">✦ SIAM CULTURAL HERITAGE ✦</span>
+
+                <h1 class="hero-title">ปฏิทินประเพณีไทย</h1>
+
+                <p class="hero-desc">
+                    เรียนรู้วัฒนธรรมไทยผ่านช่วงเวลาและเทศกาลสำคัญตลอดทั้งปี
+                    สำรวจประเพณีอันงดงามจากทั้ง 4 ภูมิภาค
+                </p>
+
+            </div>
+
+            <div class="banner-dots" role="tablist" aria-label="เลือกสไลด์ภาพ"></div>
+
+        </section>
+
+        <!-- =====================================
+             เนื้อหาหลัก
+        ====================================== -->
+        <div class="container" id="calendar-events">
+
+            <h2 class="section-title">
+                สำรวจประเพณีทั่วไทย
+            </h2>
+
+            <div class="layout">
+
+                <!-- =====================================
+                     แผนที่ประเทศไทย
+                ====================================== -->
+                <section class="panel map-panel">
+
+                    <h2>แผนที่วัฒนธรรมไทย</h2>
+
+                    <p class="subtitle">
+                        คลิกเลือกภูมิภาคบนแผนที่เพื่อสำรวจประเพณี
+                    </p>
+
+                    <div class="map-area">
+
+                        <svg class="thai-map" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 270 395" role="group"
+                            aria-labelledby="thai-map-title">
+
+                            <title id="thai-map-title">
+                                แผนที่วัฒนธรรมไทยแบ่ง 4 ภาค
+                            </title>
+
+                            <!-- ภาคเหนือ -->
+                            <path class="region" data-region="north" tabindex="0" role="button"
+                                aria-label="เลือกภาคเหนือ" d="
+                                    M84,0 L89,1 L90,5 L96,1 L100,7
+                                    L103,7 L103,12 L98,18 L100,25
+                                    L108,25 L109,22 L120,22 L118,28
+                                    L119,33 L122,36 L119,40 L120,46
+                                    L115,50 L118,62 L114,65 L113,74
+                                    L109,75 L111,76 L111,79 L116,81
+                                    L114,87 L115,91 L111,93 L112,97
+                                    L110,97 L109,103 L105,104 L105,113
+                                    L108,115 L109,124 L104,128 L104,131
+                                    L100,136 L97,136 L94,130 L87,126
+                                    L86,123 L79,122 L74,124 L69,120
+                                    L66,120 L66,123 L64,124 L64,133
+                                    L62,134 L62,132 L60,132 L55,124
+                                    L51,122 L51,111 L58,110 L60,103
+                                    L56,104 L56,106 L53,105 L53,100
+                                    L49,96 L49,88 L45,87 L44,83
+                                    L39,80 L38,76 L31,71 L28,66
+                                    L30,62 L27,54 L24,56 L20,49
+                                    L20,47 L23,48 L23,50 L31,47
+                                    L31,41 L29,38 L33,34 L33,22
+                                    L38,21 L38,16 L43,18 L43,20
+                                    L57,17 L62,18 L64,9 L74,9
+                                    L76,8 L74,2 L80,4 L83,3 Z
+                                ">
+                                <title>ภาคเหนือ</title>
+                            </path>
+
+                            <!-- ภาคอีสาน -->
+                            <path class="region" data-region="isan" tabindex="0" role="button"
+                                aria-label="เลือกภาคอีสาน" d="
+                                    M171,51 L181,54 L185,53 L185,55
+                                    L189,54 L195,66 L209,77 L207,92
+                                    L208,100 L215,107 L215,111 L223,112
+                                    L223,117 L230,121 L229,128 L226,129
+                                    L229,130 L229,132 L226,133 L226,136
+                                    L230,138 L227,143 L228,150 L218,158
+                                    L215,158 L213,154 L209,153 L189,156
+                                    L177,153 L175,155 L165,156 L162,160
+                                    L140,160 L137,158 L138,154 L131,156
+                                    L129,153 L122,153 L118,150 L118,145
+                                    L125,142 L123,138 L122,124 L120,130
+                                    L113,130 L111,126 L104,129 L109,124
+                                    L108,115 L105,113 L105,104 L109,103
+                                    L110,97 L112,97 L111,93 L115,91
+                                    L114,87 L116,83 L116,81 L111,79
+                                    L111,76 L109,75 L115,74 L118,76
+                                    L122,70 L127,69 L128,65 L132,64
+                                    L132,61 L136,61 L139,57 L153,63
+                                    L154,67 L156,67 L160,63 L165,63
+                                    L167,56 L171,55 Z
+                                ">
+                                <title>ภาคอีสาน</title>
+                            </path>
+
+                            <!-- ภาคกลาง รวมตะวันออกและตะวันตกตามตัวอย่าง -->
+                            <path class="region" data-region="central" tabindex="0" role="button"
+                                aria-label="เลือกภาคกลาง" d="
+                                    M66,120 L71,121 L74,125 L80,122
+                                    L86,123 L86,126 L93,129 L97,136
+                                    L101,136 L104,129 L108,126 L111,126
+                                    L113,130 L120,130 L122,124 L123,138
+                                    L125,142 L118,145 L119,151 L122,153
+                                    L129,153 L131,156 L138,154 L137,158
+                                    L140,160 L162,160 L157,169 L152,172
+                                    L153,175 L147,175 L147,183 L151,188
+                                    L151,197 L158,203 L156,211 L160,218
+                                    L154,209 L153,213 L148,211 L150,215
+                                    L145,214 L145,210 L148,210 L145,209
+                                    L141,202 L135,200 L134,197 L128,197
+                                    L125,199 L113,197 L111,200 L109,198
+                                    L109,190 L111,189 L110,185 L112,177
+                                    L104,175 L94,176 L86,181 L90,186
+                                    L86,198 L88,210 L84,214 L83,220
+                                    L76,231 L77,234 L75,234 L75,239
+                                    L67,239 L67,236 L79,218 L76,214
+                                    L76,209 L73,207 L73,199 L69,197
+                                    L67,193 L68,189 L65,188 L65,185
+                                    L68,183 L67,170 L60,160 L55,158
+                                    L51,151 L46,148 L43,139 L43,132
+                                    L51,129 L51,123 L53,123 L63,134 Z
+
+                                    M159,216 L162,223 L158,218 Z
+                                ">
+                                <title>ภาคกลาง</title>
+                            </path>
+
+                            <!-- ภาคใต้ -->
+                            <path class="region" data-region="south" tabindex="0" role="button" aria-label="เลือกภาคใต้"
+                                d="
+                                    M65,239 L76,241 L69,250 L70,256
+                                    L67,255 L69,259 L67,260 L66,271
+                                    L70,278 L68,283 L75,284 L75,282
+                                    L84,281 L87,300 L90,304 L91,301
+                                    L94,304 L100,332 L103,333 L105,338
+                                    L112,343 L117,343 L118,341 L127,343
+                                    L133,353 L140,358 L141,361 L134,371
+                                    L129,371 L129,368 L126,367 L120,370
+                                    L120,373 L116,375 L112,370 L115,366
+                                    L115,359 L112,358 L110,360 L108,354
+                                    L97,352 L95,348 L93,348 L92,354
+                                    L90,354 L86,347 L80,343 L79,336
+                                    L71,331 L67,322 L65,324 L66,328
+                                    L63,327 L63,318 L61,317 L61,314
+                                    L56,314 L55,308 L51,308 L47,311
+                                    L49,312 L49,316 L48,319 L44,321
+                                    L45,309 L42,302 L44,294 L43,284
+                                    L47,282 L50,267 L52,266 L58,252
+                                    L57,247 Z
+
+                                    M86,274 L90,275 L89,279 L85,279 Z
+                                    M52,310 L54,310 L53,317 L51,317 L50,313 Z
+                                    M94,320 L92,321 L93,327 L95,325 Z
+                                ">
+                                <title>ภาคใต้</title>
+                            </path>
+
+                            <!-- ชื่อภูมิภาค -->
+                            <g aria-hidden="true">
+
+                                <text class="map-label" x="77" y="69">
+                                    ภาคเหนือ
+                                </text>
+
+                                <text class="map-label" x="166" y="116">
+                                    ภาคอีสาน
+                                </text>
+
+                                <text class="map-label" x="94" y="158">
+                                    ภาคกลาง
+                                </text>
+
+                                <text class="map-label" x="73" y="303">
+                                    ภาคใต้
+                                </text>
+
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+                    <!-- ปุ่มเลือกภูมิภาค -->
+                    <div class="legend">
+
+                        <button type="button" data-select="north">
+                            <span class="dot"></span>
+                            เหนือ
+                        </button>
+
+                        <button type="button" data-select="isan">
+                            <span class="dot"></span>
+                            อีสาน
+                        </button>
+
+                        <button type="button" data-select="central">
+                            <span class="dot"></span>
+                            กลาง
+                        </button>
+
+                        <button type="button" data-select="south">
+                            <span class="dot"></span>
+                            ใต้
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- =====================================
+                     รายการประเพณี
+                ====================================== -->
+                <section class="panel">
+
+                    <div class="region-info">
+
+                        <small>
+                            ✦ CULTURAL CALENDAR
+                        </small>
+
+                        <h3 id="region-title">
+                            ประเพณีทั่วไทย
+                        </h3>
+
+                        <p id="region-description">
+                            เลือกภูมิภาคจากแผนที่ เพื่อเรียนรู้ประเพณี
+                            และกิจกรรมสำคัญในแต่ละช่วงเดือน
+                        </p>
+
+                    </div>
+
+                    <!-- ตัวกรองเดือน -->
+                    <div class="filter-heading" id="month-filter-label">
+                        เลือกเดือนที่ต้องการ
+                    </div>
+
+                    <div class="months" id="month-buttons" role="group" aria-labelledby="month-filter-label"></div>
+
+                    <!-- ค้นหาประเพณี -->
+                    <div class="calendar-search-wrap">
+                        <svg class="search-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input class="search-input" id="search-input" type="search"
+                            placeholder="ค้นหาชื่อประเพณีหรือจังหวัด..." aria-label="ค้นหาชื่อประเพณีหรือจังหวัด">
+                    </div>
+
+                    <div class="events-heading">
+
+                        <h3>
+                            ✥ รายการประเพณี
+                        </h3>
+
+                        <span id="event-count" aria-live="polite"></span>
+
+                    </div>
+
+                    <div class="events-list" id="events"></div>
+
+                    <p class="notice">
+                        * เดือนที่แสดงเป็นช่วงเวลาจัดงานโดยทั่วไป
+                        วันจริงอาจเปลี่ยนตามปฏิทินจันทรคติ
+                        และกำหนดการของแต่ละจังหวัด
+                    </p>
+
+                </section>
+
+            </div>
+
+        </div>
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+        <footer class="footer">
+
+            <div class="brand">
+                <span class="brand-mark">❈</span>
+                SIAM STORIES
+            </div>
+
+            <div class="footer-emblem" aria-label="มรดกภูมิปัญญาไทย 4 ภาค">
+                <span class="emblem-sparkle">✦</span>
+                <span class="emblem-title">มรดกภูมิปัญญา ๔ ภาค</span>
+                <span class="emblem-dot">·</span>
+                <span class="emblem-subtitle">สืบสานความเป็นไทย</span>
+                <span class="emblem-sparkle">✦</span>
+            </div>
+
+            <span class="footer-motto">ร่วมเรียนรู้และสืบสานวัฒนธรรมไทยทั้ง 4 ภาค</span>
+
+        </footer>
+
+    </main>
+
+    <!-- Back to Top Button -->
+    <button type="button" id="backToTop" class="back-to-top" aria-label="กลับสู่ด้านบน" title="กลับสู่ด้านบน">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="back-to-top-icon">
+            <path d="M6 15l6-6 6 6"/>
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    
+<script src="js/user_session.js?v=2"></script>
+<script src="js/page_transition.js"></script>
+<script src="./js/styleIsan.js"></script>
+<script src="js/js_index.js"></script>
+
+<!-- ระบบปฏิทินเดิม -->
+<script src="./js/calender_script.js"></script>
+
+<!-- เพิ่มใหม่: เชื่อม MySQL -->
+<script src="./js/db_calendar.js?v=1"></script>
+
+<script src="js/jsvaindex.js"></script>
+
+<script src="js/jsvaindex.js?v=3"></script>
+
+
+</body>
+
+</html>

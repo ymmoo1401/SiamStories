@@ -1,0 +1,775 @@
+
+
+        .content .content-slider {
+            position: relative;
+            min-width: 0;
+        }
+
+        .content .slider-window {
+            overflow: hidden;
+            padding-block: 8px;
+        }
+
+        .content .slider-track {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+            gap: 18px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content .slider-track > * {
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        #tradition .slider-track > .card {
+            flex: 0 0 calc((100% - 54px) / 4);
+        }
+
+        .content .slider-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: 2px solid #c48e3a;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #9a6220;
+            box-shadow: 0 4px 16px rgba(184, 126, 43, 0.28), 0 1px 3px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transform: translateY(-50%);
+            transition: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .content .slider-arrow:hover {
+            background: linear-gradient(135deg, #d49a38 0%, #9a6220 100%);
+            color: #ffffff;
+            border-color: #ffd88a;
+            box-shadow: 0 8px 24px rgba(184, 126, 43, 0.46), 0 2px 8px rgba(0, 0, 0, 0.12);
+            transform: translateY(-50%) scale(1.12);
+        }
+
+        .content .slider-arrow:active {
+            transform: translateY(-50%) scale(0.96);
+        }
+
+        .content .slider-arrow:focus-visible {
+            outline: 3px solid #d49a38;
+            outline-offset: 3px;
+        }
+
+        .content .slider-prev {
+            left: -18px;
+        }
+
+        .content .slider-next {
+            right: -18px;
+        }
+
+        .content .slider-arrow svg {
+            width: 22px;
+            height: 22px;
+            pointer-events: none;
+            stroke-width: 2.8;
+            transition: transform 0.2s ease;
+        }
+
+        .content .slider-prev:hover svg {
+            transform: translateX(-2px);
+        }
+
+        .content .slider-next:hover svg {
+            transform: translateX(2px);
+        }
+
+        @media (max-width: 900px) {
+            #tradition .slider-track > .card {
+                flex-basis: calc((100% - 18px) / 2);
+            }
+        }
+
+        @media (max-width: 560px) {
+            #tradition .slider-track > .card {
+                flex-basis: 100%;
+            }
+
+            .content .slider-prev {
+                left: -8px;
+            }
+
+            .content .slider-next {
+                right: -8px;
+            }
+        }
+
+        /* ========================================
+           อาหาร: พลิกการ์ด 3D
+        ======================================== */
+
+        #food .food-intro {
+            color: #8c7158;
+            margin: -4px 0 28px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #food .food-intro::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background: #c48e3a;
+            border-radius: 2px;
+        }
+
+        #food .food-stage {
+            perspective: 1600px;
+            position: relative;
+        }
+
+        #food .food-deck {
+            display: grid;
+            transform-style: preserve-3d;
+        }
+
+        #food .food-slide {
+            grid-area: 1 / 1;
+            min-width: 0;
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            background: #ffffff;
+            border: 1.5px solid rgba(214, 186, 150, 0.65);
+            border-radius: 24px;
+            box-shadow: 0 16px 45px rgba(65, 40, 18, 0.08), 0 2px 10px rgba(65, 40, 18, 0.03);
+            overflow: hidden;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+                        box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+                        border-color 0.35s ease;
+        }
+
+        #food .food-slide:hover {
+            transform: translateY(-6px);
+            border-color: #c48e3a;
+            box-shadow: 0 28px 65px rgba(75, 45, 20, 0.15), 0 4px 16px rgba(75, 45, 20, 0.05);
+        }
+
+        #food .food-slide[hidden] {
+            display: none;
+        }
+
+        #food .food-photo {
+            margin: 0;
+            min-height: 430px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 22.5px 0 0 22.5px;
+            background: #f0e5d4;
+        }
+
+        #food .food-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            transition: transform 0.85s cubic-bezier(.2, .8, .2, 1), filter 0.85s ease;
+        }
+
+        #food .food-slide:hover .food-photo img {
+            transform: scale(1.08);
+            filter: brightness(1.03) contrast(1.02);
+        }
+
+        /* แสงสะท้อนวิ่งผ่านกรอบรูปภาพอาหาร */
+        #food .food-photo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.45),
+                transparent
+            );
+            transform: skewX(-25deg);
+            z-index: 2;
+            pointer-events: none;
+            transition: none;
+        }
+
+        #food .food-slide:hover .food-photo::before {
+            left: 210%;
+            transition: left 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        #food .food-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                0deg,
+                rgba(20, 13, 7, 0.78) 0%,
+                rgba(20, 13, 7, 0.25) 35%,
+                transparent 65%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #food .food-photo figcaption {
+            position: absolute;
+            bottom: 24px;
+            left: 26px;
+            color: #fff8e8;
+            letter-spacing: .16em;
+            font-size: 11.5px;
+            font-weight: 700;
+            font-family: 'Prompt', sans-serif;
+            z-index: 3;
+            background: rgba(22, 14, 7, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(230, 185, 120, 0.45);
+            border-radius: 999px;
+            padding: 7px 18px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+            transition: all 0.35s ease;
+        }
+
+        #food .food-slide:hover .food-photo figcaption {
+            transform: translateY(-2px);
+            background: rgba(124, 79, 36, 0.92);
+            border-color: rgba(255, 215, 140, 0.85);
+            box-shadow: 0 6px 22px rgba(124, 79, 36, 0.5);
+        }
+
+        #food .food-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(28px, 4vw, 54px);
+            color: #4a3a2b;
+        }
+
+        #food .food-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12.5px;
+            letter-spacing: .16em;
+            font-weight: 700;
+            color: #a8793b;
+            font-family: 'Prompt', sans-serif;
+            text-transform: uppercase;
+        }
+
+        #food .food-copy h3 {
+            font-size: clamp(34px, 4vw, 48px);
+            line-height: 1.25;
+            margin: 10px 0 16px;
+            color: #2b1d11;
+            font-family: 'Prompt', 'Kanit', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        #food .food-copy p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.9;
+            color: #554433;
+            font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+        }
+
+        #food .food-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 24px;
+        }
+
+        #food .food-tags span {
+            border: 1px solid rgba(196, 142, 58, 0.35);
+            border-radius: 999px;
+            padding: 7px 18px;
+            background: linear-gradient(135deg, rgba(254, 250, 243, 0.95), rgba(246, 237, 222, 0.85));
+            color: #7b4f24;
+            font-family: 'Prompt', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(118, 80, 47, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        #food .food-tags span:hover {
+            background: #7b4f24;
+            border-color: #7b4f24;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(123, 79, 36, 0.25);
+        }
+
+        #food .food-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 24px 0 12px;
+        }
+
+        #food .food-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        #food button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        #food .food-choice {
+            padding: 10px 24px;
+            border-radius: 999px;
+            border: 1.5px solid #ded0bd;
+            background: #ffffff;
+            color: #5a422d;
+            font-family: 'Prompt', sans-serif;
+            font-size: 14.5px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(80, 55, 35, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        #food .food-choice:hover {
+            transform: translateY(-2px);
+            border-color: #b87e2b;
+            color: #3b2818;
+            box-shadow: 0 6px 18px rgba(118, 80, 47, 0.16);
+        }
+
+        #food .food-choice[aria-pressed="true"] {
+            background: linear-gradient(135deg, #7b4f24, #a46d37);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 6px 20px rgba(123, 79, 36, 0.35);
+            transform: translateY(-1px);
+        }
+
+        #food .food-arrows {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        #food .food-arrow {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            background: #ffffff;
+            border: 1.5px solid #ded0bd;
+            border-radius: 50%;
+            color: #5a422d;
+            box-shadow: 0 3px 10px rgba(80, 55, 35, 0.06);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        #food .food-arrow:hover {
+            background: #fffdf9;
+            border-color: #b87e2b;
+            color: #7b4f24;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(123, 79, 36, 0.22);
+        }
+
+        #food .food-arrow svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        #food button:focus-visible {
+            outline: 2px solid #95734e;
+            outline-offset: 4px;
+        }
+
+        #food .food-counter {
+            font-size: 12px;
+            color: #88735c;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        #food .food-credit {
+            font-size: 11px;
+            color: #88735c;
+            line-height: 1.7;
+        }
+
+        #food .food-credit a {
+            color: inherit;
+        }
+
+        #food .food-sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 700px) {
+            #food .food-slide {
+                grid-template-columns: 1fr;
+            }
+
+            #food .food-photo {
+                min-height: 270px;
+                border-radius: 23px 23px 0 0;
+            }
+
+            #food .food-copy {
+                padding: 26px;
+            }
+
+            #food .food-controls {
+                flex-wrap: wrap;
+            }
+
+            #food .food-choice {
+                padding: 9px 16px;
+            }
+        }
+
+        /* ========================================
+           การแต่งกายและภูมิปัญญา: รูปภาพ
+        ======================================== */
+
+        :is(#dress, #wisdom) .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 26px;
+        }
+
+        :is(#dress, #wisdom) .culture-grid > .panel {
+            min-width: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 1.5px solid rgba(214, 186, 150, 0.65);
+            border-radius: 24px;
+            background: #ffffff;
+            box-shadow: 0 12px 35px rgba(65, 40, 18, 0.08), 0 2px 8px rgba(65, 40, 18, 0.03);
+            box-sizing: border-box;
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+                        box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+                        border-color 0.35s ease;
+            position: relative;
+        }
+
+        :is(#dress, #wisdom) .culture-grid > .panel:hover {
+            transform: translateY(-8px);
+            border-color: #c48e3a;
+            box-shadow: 0 26px 55px rgba(75, 45, 20, 0.16), 0 4px 16px rgba(75, 45, 20, 0.06);
+        }
+
+        :is(#dress, #wisdom) .culture-photo {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            margin: 0;
+            overflow: hidden;
+            isolation: isolate;
+            background: #f0e5d4;
+        }
+
+        :is(#dress, #wisdom) .culture-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.85s cubic-bezier(.2, .8, .2, 1), filter 0.85s ease;
+        }
+
+        :is(#dress, #wisdom) .culture-grid > .panel:hover .culture-photo img {
+            transform: scale(1.08);
+            filter: brightness(1.03) contrast(1.02);
+        }
+
+        /* แสงสะท้อนวิ่งผ่านรูปภาพการแต่งกายและภูมิปัญญา */
+        :is(#dress, #wisdom) .culture-photo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.45),
+                transparent
+            );
+            transform: skewX(-25deg);
+            z-index: 3;
+            pointer-events: none;
+            transition: none;
+        }
+
+        :is(#dress, #wisdom) .culture-grid > .panel:hover .culture-photo::before {
+            left: 210%;
+            transition: left 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        :is(#dress, #wisdom) .culture-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(
+                180deg,
+                transparent 40%,
+                rgba(20, 12, 6, 0.25) 70%,
+                rgba(20, 12, 6, 0.78) 100%
+            );
+        }
+
+        :is(#dress, #wisdom) .culture-label {
+            position: absolute;
+            bottom: 18px;
+            left: 20px;
+            z-index: 2;
+            max-width: calc(100% - 40px);
+            color: #fff8e8;
+            font-family: 'Prompt', sans-serif;
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            background: rgba(22, 14, 7, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(230, 185, 120, 0.45);
+            border-radius: 999px;
+            padding: 7px 18px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+            transition: all 0.35s ease;
+        }
+
+        :is(#dress, #wisdom) .culture-grid > .panel:hover .culture-label {
+            transform: translateY(-2px);
+            background: rgba(124, 79, 36, 0.92);
+            border-color: rgba(255, 220, 150, 0.85);
+            box-shadow: 0 6px 20px rgba(124, 79, 36, 0.5);
+        }
+
+        :is(#dress, #wisdom) .culture-copy {
+            padding: clamp(24px, 3.5vw, 34px);
+        }
+
+        :is(#dress, #wisdom) .culture-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+            color: #a8793b;
+            font-family: 'Prompt', sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        :is(#dress, #wisdom) .culture-copy h3 {
+            margin: 0 0 12px;
+            color: #2e1f13;
+            font-family: 'Prompt', 'Kanit', sans-serif;
+            font-weight: 700;
+            font-size: clamp(21px, 2vw, 25px);
+            line-height: 1.45;
+            letter-spacing: -0.01em;
+            transition: color 0.3s ease;
+        }
+
+        :is(#dress, #wisdom) .culture-grid > .panel:hover .culture-copy h3 {
+            color: #925827;
+        }
+
+        :is(#dress, #wisdom) .culture-copy p {
+            margin: 0;
+            color: #554433;
+            font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* การแต่งกาย: เส้นใต้ขยายและเอฟเฟกต์ */
+        #dress .culture-copy h3::after {
+            content: "";
+            display: block;
+            width: 38px;
+            height: 2.5px;
+            margin-top: 14px;
+            background: linear-gradient(90deg, #c48e3a, #edd4ab);
+            border-radius: 999px;
+            transition: width 0.45s cubic-bezier(.25, 1, .5, 1);
+        }
+
+        #dress .dress-card:hover .culture-copy h3::after {
+            width: 76px;
+        }
+
+        #dress .dress-card .culture-photo {
+            clip-path: inset(0);
+            transition: clip-path 1100ms cubic-bezier(.16, 1, .3, 1);
+        }
+
+        #dress .dress-card .culture-copy {
+            opacity: 1;
+            transform: translateY(0);
+            transition:
+                opacity 750ms,
+                transform 750ms cubic-bezier(.16, 1, .3, 1);
+        }
+
+        #dress .dress-card.culture-pending .culture-photo {
+            clip-path: inset(0 100% 0 0);
+        }
+
+        #dress .dress-card.culture-pending .culture-copy {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+
+        /* ภูมิปัญญา: ลอยขึ้น + ภาพเคลื่อน */
+        #wisdom .wisdom-card {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+            transition:
+                opacity 800ms,
+                transform 900ms cubic-bezier(.16, 1, .3, 1),
+                filter 800ms,
+                box-shadow 450ms,
+                border-color 450ms;
+        }
+
+        #wisdom .wisdom-card.culture-pending {
+            opacity: 0;
+            transform: translateY(42px) scale(.97);
+            filter: blur(4px);
+        }
+
+        #wisdom .wisdom-card .culture-photo img {
+            transform: scale(1.08) translateX(-1%);
+            transition: transform 1400ms cubic-bezier(.16, 1, .3, 1);
+        }
+
+        #wisdom .wisdom-card .culture-label {
+            transform: translateY(0);
+            transition: transform 500ms;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            #dress .dress-card:hover {
+                border-color: #c7a575;
+                box-shadow: 0 16px 38px rgb(91 64 30 / 12%);
+            }
+
+            #dress .dress-card:hover .culture-photo img {
+                transform: scale(1.075);
+            }
+
+            #dress .dress-card:hover .culture-copy h3::after {
+                width: 90px;
+            }
+
+            #wisdom .wisdom-card:not(.culture-pending):hover {
+                transform: translateY(-8px);
+                border-color: #c7b294;
+                box-shadow: 0 24px 44px -18px rgb(91 64 30 / 30%);
+            }
+
+            #wisdom .wisdom-card:hover .culture-photo img {
+                transform: scale(1.08) translateX(1%);
+            }
+
+            #wisdom .wisdom-card:hover .culture-label {
+                transform: translateY(-4px);
+            }
+        }
+
+        :is(#dress, #wisdom) .culture-photo.image-missing::before {
+            content: attr(data-fallback);
+            position: absolute;
+            inset: 20px;
+            display: grid;
+            place-items: center;
+            color: #786448;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            :is(#dress, #wisdom) .culture-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            :is(#dress, #wisdom) .culture-photo {
+                aspect-ratio: 4 / 3;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #food *,
+            #food *::after,
+            :is(#dress, #wisdom) .culture-grid *,
+            :is(#dress, #wisdom) .culture-grid *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+
+            #food .food-photo:hover img {
+                transform: none;
+            }
+
+            #dress .dress-card.culture-pending .culture-photo {
+                clip-path: inset(0);
+            }
+
+            #dress .dress-card.culture-pending .culture-copy,
+            #wisdom .wisdom-card.culture-pending {
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
+
+            :is(#dress, #wisdom) .culture-photo img,
+            #wisdom .wisdom-card:not(.culture-pending):hover,
+            #wisdom .wisdom-card:hover .culture-label {
+                transform: none;
+            }
+        }
+  

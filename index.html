@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>รากฐานของความเป็นไทย</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/user_session.css?v=2">
+</head>
+
+<body>
+
+<main class="site">
+
+    <!-- Navigation -->
+    <nav class="nav">
+
+        <a class="brand" href="index.html">
+            <span class="brand-mark">❈</span>
+
+            <span>
+                SIAM STORIES
+                <small>รากฐานของความเป็นไทย</small>
+            </span>
+        </a>
+
+        <!-- SEARCH BAR -->
+        <div class="site-search" id="siteSearch">
+
+            <div class="search-box">
+
+                <span class="search-symbol">⌕</span>
+
+                <input
+                    type="search"
+                    id="siteSearchInput"
+                    placeholder="ค้นหาวัฒนธรรมไทย..."
+                    aria-label="ค้นหาข้อมูลทั้งเว็บไซต์"
+                    aria-controls="searchResults"
+                    aria-expanded="false"
+                    autocomplete="off">
+
+            </div>
+
+            <div class="search-results"
+                 id="searchResults"
+                 role="region"
+                 aria-label="ผลการค้นหา">
+            </div>
+
+        </div>
+
+        <!-- Hamburger Button for Mobile -->
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="เปิดเมนูนำทาง" aria-expanded="false" aria-controls="mainMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <div class="menu" id="mainMenu">
+            <a href="index.html" class="active" aria-current="page">หน้าแรก</a>
+            <a href="isan.html">ภาคอีสาน</a>
+            <a href="central.html">ภาคกลาง</a>
+            <a href="east.html">ภาคเหนือ</a>
+            <a href="south.html">ภาคใต้</a>
+            <a href="calendar.html">ปฏิทินประเพณีไทย</a>
+            <a href="team.html">ผู้จัดทำ</a>
+            <div class="nav-auth-wrapper">
+                <a href="admin/login.php" class="user-circle-btn" aria-label="บัญชีผู้ใช้งาน">
+                    <svg class="user-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span class="user-red-tooltip">บัญชีผู้ใช้งาน</span>
+                </a>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Modern Thai Heritage Hero Slider -->
+    <section class="hero-slider-section" id="homeHero" aria-label="ไฮไลต์วัฒนธรรมไทย">
+
+        <div class="hero-slides-wrapper">
+
+            <!-- Slide 1: Main Heritage -->
+            <article class="hero-slide active" data-slide="0" aria-label="สไลด์ 1: สัมผัสความงดงามของวัฒนธรรมไทย">
+                <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1600&q=85');"></div>
+                <div class="hero-slide-shade" aria-hidden="true"></div>
+                <div class="hero-slide-content">
+                    <span class="hero-eyebrow">✦ DISCOVER THAI HERITAGE ✦</span>
+                    <h1 class="hero-title">สัมผัสความงดงามของวัฒนธรรมไทย</h1>
+                    <p class="hero-desc">สำรวจประเพณี อาหาร การแต่งกาย และภูมิปัญญาจากทั่วทุกภูมิภาค ผ่านเรื่องราวที่สะท้อนรากฐานความเป็นไทย</p>
+                    <div class="hero-actions">
+                        <a href="#regions" class="btn-hero btn-hero-primary">
+                            <span>สำรวจวัฒนธรรมไทย</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="calendar.html" class="btn-hero btn-hero-secondary">
+                            <span>ค้นพบเรื่องราว</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="12 8 8 12 12 16 16 12 12 8"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Slide 2: Isan -->
+            <article class="hero-slide" data-slide="1" aria-label="สไลด์ 2: มนต์เสน่ห์แดนอีสาน">
+                <div class="hero-slide-bg" style="background-image: url('Img/isan-img/อีสานพื้นหลัง.png');"></div>
+                <div class="hero-slide-shade" aria-hidden="true"></div>
+                <div class="hero-slide-content">
+                    <span class="hero-eyebrow">✦ NORTHEASTERN CHARM ✦</span>
+                    <h2 class="hero-title">มนต์เสน่ห์แดนอีสาน ศรัทธาและสีสัน</h2>
+                    <p class="hero-desc">สัมผัสประเพณีบุญบั้งไฟ ผีตาโขน รสชาติอาหารจัดจ้าน และเสียงแคนอันเปี่ยมด้วยจิตวิญญาณแห่งลุ่มน้ำโขง</p>
+                    <div class="hero-actions">
+                        <a href="isan.html" class="btn-hero btn-hero-primary">
+                            <span>สำรวจภาคอีสาน</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="calendar.html" class="btn-hero btn-hero-secondary">
+                            <span>ปฏิทินประเพณี</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="12 8 8 12 12 16 16 12 8"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Slide 3: Central -->
+            <article class="hero-slide" data-slide="2" aria-label="สไลด์ 3: อู่ข้าวอู่น้ำภาคกลาง">
+                <div class="hero-slide-bg" style="background-image: url('Img/central-img/กลางพื้นหลัง.jpg');"></div>
+                <div class="hero-slide-shade" aria-hidden="true"></div>
+                <div class="hero-slide-content">
+                    <span class="hero-eyebrow">✦ HEART OF SIAM ✦</span>
+                    <h2 class="hero-title">อู่ข้าวอู่น้ำ ภาคกลาง มรดกแห่งสายน้ำ</h2>
+                    <p class="hero-desc">ศูนย์กลางอารยธรรมและประวัติศาสตร์ สถาปัตยกรรมวัดวาอาราม ประเพณีสงกรานต์ และวิถีชีวิตริมแม่น้ำเจ้าพระยา</p>
+                    <div class="hero-actions">
+                        <a href="central.html" class="btn-hero btn-hero-primary">
+                            <span>สำรวจภาคกลาง</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="calendar.html" class="btn-hero btn-hero-secondary">
+                            <span>ปฏิทินประเพณี</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="12 8 8 12 12 16 16 12 8"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Slide 4: North -->
+            <article class="hero-slide" data-slide="3" aria-label="สไลด์ 4: อารยธรรมล้านนาภาคเหนือ">
+                <div class="hero-slide-bg" style="background-image: url('Img/east-img/เหนือพื้นหลัง.jpg');"></div>
+                <div class="hero-slide-shade" aria-hidden="true"></div>
+                <div class="hero-slide-content">
+                    <span class="hero-eyebrow">✦ LANNA HERITAGE ✦</span>
+                    <h2 class="hero-title">ภาคเหนือ อารยธรรมล้านนาอันอ่อนช้อย</h2>
+                    <p class="hero-desc">งดงามด้วยโคมลอยยี่เป็ง สถาปัตยกรรมเรือนกาแล ผ้าซิ่นตีนจก และบรรยากาศขุนเขาอันสงบสุขงดงาม</p>
+                    <div class="hero-actions">
+                        <a href="east.html" class="btn-hero btn-hero-primary">
+                            <span>สำรวจภาคเหนือ</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="calendar.html" class="btn-hero btn-hero-secondary">
+                            <span>ปฏิทินประเพณี</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="12 8 8 12 12 16 16 12 8"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Slide 5: South -->
+            <article class="hero-slide" data-slide="4" aria-label="สไลด์ 5: มนต์เสน่ห์ปักษ์ใต้">
+                <div class="hero-slide-bg" style="background-image: url('Img/south-img/ใต้พื้นหลัง.jpg');"></div>
+                <div class="hero-slide-shade" aria-hidden="true"></div>
+                <div class="hero-slide-content">
+                    <span class="hero-eyebrow">✦ SOUTHERN PEARL ✦</span>
+                    <h2 class="hero-title">มนต์เสน่ห์ปักษ์ใต้ สองฟากฝั่งทะเล</h2>
+                    <p class="hero-desc">ประเพณีชักพระ มโนราห์อันสง่างาม ผ้าบาติกสีสันสดใส และความผูกพันแห่งวิถีชีวิตสองฝั่งคาบสมุทร</p>
+                    <div class="hero-actions">
+                        <a href="south.html" class="btn-hero btn-hero-primary">
+                            <span>สำรวจภาคใต้</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="calendar.html" class="btn-hero btn-hero-secondary">
+                            <span>ปฏิทินประเพณี</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="12 8 8 12 12 16 16 12 8"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Slider Pagination Dots -->
+        <div class="hero-slider-dots" id="heroDots" role="tablist" aria-label="เลือกสไลด์ภาพ"></div>
+
+    </section>
+
+    <!-- Region Selection -->
+    <section class="home-intro" id="regions">
+
+        <div class="section-title">
+            <span>✦</span>
+            <h2>เลือกภูมิภาค</h2>
+        </div>
+
+        <div class="region-grid">
+
+            <a class="region-card isan"
+               href="isan.html">
+
+                <div class="region-img"></div>
+
+                <h3>ภาคอีสาน</h3>
+
+                <p>
+                    โดดเด่นด้วยวัฒนธรรมพื้นบ้าน
+                    อาหารรสแซ่บ ประเพณีท้องถิ่น
+                    และเสียงดนตรีหมอลำที่เป็น
+                    เอกลักษณ์ของภูมิภาค
+                </p>
+
+            </a>
+
+            <a class="region-card central"
+               href="central.html">
+
+                <div class="region-img"></div>
+
+                <h3>ภาคกลาง</h3>
+
+                <p>
+                    โดดเด่นด้วยวัฒนธรรมอันหลากหลาย
+                    ประเพณีไทย อาหารพื้นบ้าน
+                    และวิถีชีวิตที่ผูกพันกับแม่น้ำ
+                    และการเกษตร
+                </p>
+
+            </a>
+
+            <a class="region-card east"
+               href="east.html">
+
+                <div class="region-img"></div>
+
+                <h3>ภาคเหนือ</h3>
+
+                <p>
+                    โดดเด่นด้วยวิถีชีวิตชายฝั่งทะเล
+                    อาหารทะเลสดใหม่ ผลไม้ขึ้นชื่อ
+                    และประเพณีท้องถิ่นที่สะท้อน
+                    เอกลักษณ์ของภูมิภาค
+                </p>
+
+            </a>
+
+            <a class="region-card south"
+               href="south.html">
+
+                <div class="region-img"></div>
+
+                <h3>ภาคใต้</h3>
+
+                <p>
+                    โดดเด่นด้วยวัฒนธรรมที่หลากหลาย
+                    อาหารรสจัด ประเพณีท้องถิ่น
+                    และวิถีชีวิตที่ผูกพันกับทะเล
+                    และธรรมชาติ
+                </p>
+
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="brand">
+            <span class="brand-mark">❈</span>
+            SIAM STORIES
+        </div>
+
+        <div class="footer-emblem" aria-label="มรดกภูมิปัญญาไทย 4 ภาค">
+            <span class="emblem-sparkle">✦</span>
+            <span class="emblem-title">มรดกภูมิปัญญา ๔ ภาค</span>
+            <span class="emblem-dot">·</span>
+            <span class="emblem-subtitle">สืบสานความเป็นไทย</span>
+            <span class="emblem-sparkle">✦</span>
+        </div>
+
+        <span class="footer-motto">สำรวจวัฒนธรรมไทยทั้ง 4 ภาค</span>
+
+    </footer>
+
+</main>
+
+<!-- Back to Top Button -->
+<button type="button" id="backToTop" class="back-to-top" aria-label="กลับสู่ด้านบน" title="กลับสู่ด้านบน">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="back-to-top-icon">
+        <path d="M6 15l6-6 6 6"/>
+    </svg>
+</button>
+
+<!-- JavaScript -->
+<script src="js/user_session.js?v=2"></script>
+<script src="js/page_transition.js"></script>
+<script src="js/index_js.js"></script>
+<script src="js/jsvaindex.js?v=3"></script>
+
+
+
+
+
+</body>
+</html>

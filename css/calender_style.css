@@ -1,0 +1,969 @@
+/* =====================================
+   รูปแบบเฉพาะหน้าปฏิทิน
+   Navigation และ .site ใช้ style.css
+===================================== */
+
+/* ฟอนต์เฉพาะเนื้อหาปฏิทิน */
+.calendar-page .calendar-hero,
+.calendar-page .container,
+.calendar-page .footer {
+    font-family: "Prompt", sans-serif;
+
+    --brown: #704321;
+    --gold: #b67c3c;
+    --cream: #f7f1e8;
+    --border: #eadac7;
+}
+
+.calendar-page .container button,
+.calendar-page .container input {
+    font: inherit;
+}
+
+.calendar-page .container button {
+    cursor: pointer;
+}
+
+/* รองรับ JavaScript เดิม */
+.calendar-page #menu-toggle {
+    display: none;
+}
+
+/* =====================================
+   HERO
+===================================== */
+
+.calendar-page .hero.calendar-hero {
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 55px max(32px, calc((100% - 1380px) / 2));
+    text-align: center;
+    color: white;
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: #4a3320;
+}
+
+.calendar-page .hero-slider {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.calendar-page .hero-track {
+    height: 100%;
+    display: flex;
+    transition: transform 1s ease-in-out;
+    will-change: transform;
+}
+
+.calendar-page .hero-slide {
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.calendar-page .calendar-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        #32200dbe,
+        #4a332078
+    );
+    pointer-events: none;
+}
+
+.calendar-page .calendar-hero .eyebrow {
+    color: #f0d2a1;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.calendar-page .calendar-hero h1 {
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 5vw, 52px);
+    letter-spacing: -0.01em;
+    margin: 8px 0;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+.calendar-page .calendar-hero p {
+    font-family: 'Prompt', sans-serif;
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.85;
+    margin: 0;
+    max-width: 650px;
+    color: #f7ede1;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* =====================================
+   โครงเนื้อหา
+===================================== */
+
+.calendar-page .container {
+    padding: 35px max(32px, calc((100% - 1380px) / 2)) 65px;
+    color: #33271e;
+}
+
+.calendar-page .container > .section-title {
+    display: flex;
+    align-items: center;
+    color: #302012;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -0.015em;
+    margin: 0 0 24px;
+}
+
+.calendar-page .container > .section-title::before {
+    content: "✦";
+    color: #c48e3a;
+    font-size: 20px;
+    margin-right: 12px;
+    text-shadow: 0 0 12px rgba(196, 142, 58, 0.45);
+}
+
+.calendar-page .container > .section-title::after {
+    content: "";
+    display: inline-block;
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #c48e3a, transparent);
+    border-radius: 999px;
+    margin-left: 12px;
+}
+
+.calendar-page .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.calendar-page .container .panel {
+    min-width: 0;
+    background: #ffffff;
+    border: 1.5px solid rgba(227, 216, 201, 0.85);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(112, 67, 33, 0.06);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.calendar-page .panel.map-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-page .container .panel h2 {
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: #5d381c;
+    margin: 0 0 5px;
+}
+
+.calendar-page .subtitle {
+    font-family: 'Prompt', sans-serif;
+    color: #8c735d;
+    font-size: 13px;
+    margin: 0 0 16px;
+}
+
+/* =====================================
+   กรอบแผนที่
+===================================== */
+
+.calendar-page .map-area {
+    background: radial-gradient(ellipse at center, #fffdfa 0%, #f7eee2 70%, #ede0cf 100%);
+    border: 1.5px solid rgba(227, 216, 201, 0.9);
+    border-radius: 18px;
+    flex: 1 1 auto;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 14px rgba(112, 67, 33, 0.04);
+}
+
+.calendar-page .map-area::before,
+.calendar-page .map-area::after {
+    content: "❈";
+    position: absolute;
+    color: #d1b187;
+    font-size: 32px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.calendar-page .map-area::before {
+    left: 18px;
+    top: 14px;
+}
+
+.calendar-page .map-area::after {
+    right: 18px;
+    bottom: 14px;
+}
+
+/* =====================================
+   ปุ่มเลือกภาค (ดีไซน์ดั้งเดิม พร้อม Transition สวยงาม)
+===================================== */
+
+/* =====================================
+   ปุ่มเลือกภาคใต้แผนที่ (Modern Thai Heritage Regional Badges)
+===================================== */
+
+.calendar-page .legend {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+    flex-shrink: 0;
+}
+
+.calendar-page .legend button {
+    position: relative;
+    border: 1.5px solid rgba(220, 203, 183, 0.9);
+    border-radius: 999px;
+    padding: 10px 14px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbf6ee 100%);
+    color: #4d3a2b;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 3px 10px rgba(112, 67, 33, 0.05);
+    transition: transform 0.32s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.32s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease;
+    will-change: transform, box-shadow;
+    outline: none;
+    user-select: none;
+}
+
+/* จุดสีประจำภาค */
+.calendar-page .dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease;
+}
+
+/* =====================================
+   Hover Effect (ยกตัวนุ่มนวล + ขยายจุดสี + สีขอบประจำภาค)
+===================================== */
+
+.calendar-page .legend button:hover {
+    transform: translateY(-3px);
+    background: #ffffff;
+}
+
+.calendar-page .legend button:hover .dot {
+    transform: scale(1.35);
+}
+
+/* 1. ภาคเหนือ: เขียว */
+.calendar-page .legend [data-select="north"]:hover {
+    border-color: #4db36f;
+    color: #04633f;
+    box-shadow: 0 6px 18px rgba(77, 179, 111, 0.28);
+}
+.calendar-page .legend [data-select="north"]:hover .dot {
+    box-shadow: 0 0 10px rgba(77, 179, 111, 0.7);
+}
+
+/* 2. ภาคอีสาน: ชมพู */
+.calendar-page .legend [data-select="isan"]:hover {
+    border-color: #ea6bb5;
+    color: #8c1955;
+    box-shadow: 0 6px 18px rgba(234, 107, 181, 0.28);
+}
+.calendar-page .legend [data-select="isan"]:hover .dot {
+    box-shadow: 0 0 10px rgba(234, 107, 181, 0.7);
+}
+
+/* 3. ภาคกลาง: ส้ม */
+.calendar-page .legend [data-select="central"]:hover {
+    border-color: #f59e38;
+    color: #9a4805;
+    box-shadow: 0 6px 18px rgba(245, 158, 56, 0.28);
+}
+.calendar-page .legend [data-select="central"]:hover .dot {
+    box-shadow: 0 0 10px rgba(245, 158, 56, 0.7);
+}
+
+/* 4. ภาคใต้: น้ำเงิน */
+.calendar-page .legend [data-select="south"]:hover {
+    border-color: #299de8;
+    color: #035b8c;
+    box-shadow: 0 6px 18px rgba(41, 157, 232, 0.28);
+}
+.calendar-page .legend [data-select="south"]:hover .dot {
+    box-shadow: 0 0 10px rgba(41, 157, 232, 0.7);
+}
+
+/* Click feedback */
+.calendar-page .legend button:active {
+    transform: translateY(-1px) scale(0.97);
+}
+
+/* =====================================
+   Active State (เมื่อเลือกภาค - สไตล์อัญมณีหลวงประจำภาค)
+===================================== */
+
+.calendar-page .legend button.active {
+    transform: translateY(-2px);
+    font-weight: 700;
+}
+
+.calendar-page .legend button.active:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.calendar-page .legend button.active .dot {
+    background: #ffffff !important;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.95);
+    transform: scale(1.2);
+}
+
+/* 1. ภาคเหนือ: เขียว */
+.calendar-page .legend [data-select="north"].active {
+    background: linear-gradient(135deg, #058757 0%, #024d31 100%) !important;
+    color: #ffffff !important;
+    border-color: #4ade80 !important;
+    box-shadow: 0 6px 20px rgba(5, 135, 87, 0.38), 0 0 0 2px rgba(74, 222, 128, 0.35) !important;
+}
+
+/* 2. ภาคอีสาน: ชมพู */
+.calendar-page .legend [data-select="isan"].active {
+    background: linear-gradient(135deg, #a32868 0%, #741444 100%) !important;
+    color: #ffffff !important;
+    border-color: #f472b6 !important;
+    box-shadow: 0 6px 20px rgba(163, 40, 104, 0.38), 0 0 0 2px rgba(244, 114, 182, 0.35) !important;
+}
+
+/* 3. ภาคกลาง: ส้ม */
+.calendar-page .legend [data-select="central"].active {
+    background: linear-gradient(135deg, #c97418 0%, #91500a 100%) !important;
+    color: #ffffff !important;
+    border-color: #fb923c !important;
+    box-shadow: 0 6px 20px rgba(201, 116, 24, 0.38), 0 0 0 2px rgba(251, 146, 60, 0.35) !important;
+}
+
+/* 4. ภาคใต้: น้ำเงิน */
+.calendar-page .legend [data-select="south"].active {
+    background: linear-gradient(135deg, #0284c7 0%, #014d77 100%) !important;
+    color: #ffffff !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.38), 0 0 0 2px rgba(56, 189, 248, 0.35) !important;
+}
+
+/* =====================================
+   ข้อมูลภูมิภาค
+===================================== */
+
+/* =====================================
+   ข้อมูลภูมิภาค (Modern Thai Heritage Banner Card)
+===================================== */
+
+.calendar-page .region-info {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #fffbf6 0%, #fdf5ea 50%, #f6e9d7 100%);
+    border: 1.5px solid rgba(212, 154, 56, 0.4);
+    border-left: 6px solid #d49a38;
+    padding: 24px 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 28px rgba(112, 67, 33, 0.08), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.4s ease,
+                background 0.4s ease;
+}
+
+.calendar-page .region-info:hover {
+    box-shadow: 0 14px 36px rgba(112, 67, 33, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    border-color: rgba(212, 154, 56, 0.65);
+}
+
+/* Watermark Thai motif in background */
+.calendar-page .region-info::after {
+    content: "❈";
+    position: absolute;
+    right: 18px;
+    bottom: -8px;
+    font-size: 86px;
+    color: rgba(212, 154, 56, 0.1);
+    pointer-events: none;
+    line-height: 1;
+    font-family: serif;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.4s ease;
+}
+
+.calendar-page .region-info:hover::after {
+    transform: rotate(18deg) scale(1.08);
+    color: rgba(212, 154, 56, 0.18);
+}
+
+/* Regional dynamic styling */
+/* Regional dynamic styling (อีสาน=ชมพู, กลาง=ส้ม, เหนือ=เขียว, ใต้=ฟ้า) */
+.calendar-page .region-info[data-region="north"] {
+    border-left-color: #058757;
+    background: linear-gradient(135deg, #f4fbf7 0%, #e6f6ee 50%, #d4efdf 100%);
+}
+.calendar-page .region-info[data-region="north"] small {
+    color: #025234;
+    border-color: rgba(5, 135, 87, 0.4);
+    background: rgba(255, 255, 255, 0.9);
+}
+.calendar-page .region-info[data-region="isan"] {
+    border-left-color: #a32868;
+    background: linear-gradient(135deg, #fffafd 0%, #fcf0fa 50%, #f7e1f4 100%);
+}
+.calendar-page .region-info[data-region="isan"] small {
+    color: #741444;
+    border-color: rgba(163, 40, 104, 0.4);
+    background: rgba(255, 255, 255, 0.9);
+}
+.calendar-page .region-info[data-region="central"] {
+    border-left-color: #c97418;
+    background: linear-gradient(135deg, #fffaf4 0%, #fdf2e6 50%, #f8e5d0 100%);
+}
+.calendar-page .region-info[data-region="central"] small {
+    color: #8c4e09;
+    border-color: rgba(201, 116, 24, 0.4);
+    background: rgba(255, 255, 255, 0.9);
+}
+.calendar-page .region-info[data-region="south"] {
+    border-left-color: #0284c7;
+    background: linear-gradient(135deg, #f4f9fd 0%, #e6f2fc 50%, #d4e7f8 100%);
+}
+.calendar-page .region-info[data-region="south"] small {
+    color: #014d77;
+    border-color: rgba(2, 132, 199, 0.4);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.calendar-page .region-info small {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #9c631b;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(212, 154, 56, 0.35);
+    box-shadow: 0 2px 6px rgba(184, 126, 43, 0.08);
+    margin-bottom: 10px;
+    transition: all 0.35s ease;
+}
+
+.calendar-page .region-info h3 {
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: clamp(26px, 2.4vw, 32px);
+    font-weight: 800;
+    line-height: 1.22;
+    color: #3e220e;
+    margin: 4px 0 8px;
+    letter-spacing: -0.015em;
+    transition: color 0.3s ease;
+}
+
+.calendar-page .region-info p {
+    font-family: 'Prompt', sans-serif;
+    font-size: 13.5px;
+    color: #6a4f38;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 96%;
+    transition: color 0.3s ease;
+}
+
+/* =====================================
+   ตัวกรองเดือน (Modern Month Selector)
+===================================== */
+
+.calendar-page .filter-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #4a2d16;
+    margin: 22px 0 12px;
+    letter-spacing: -0.01em;
+}
+
+.calendar-page .filter-heading::before {
+    content: "✦";
+    color: #d49a38;
+    font-size: 14px;
+    display: inline-block;
+    transition: transform 0.35s ease;
+}
+
+.calendar-page .panel:hover .filter-heading::before {
+    transform: rotate(45deg);
+}
+
+.calendar-page .months {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 9px;
+    margin-bottom: 20px;
+}
+
+.calendar-page .months button {
+    position: relative;
+    background: linear-gradient(180deg, #ffffff 0%, #fbf6ee 100%);
+    border: 1.5px solid rgba(224, 207, 188, 0.9);
+    border-radius: 12px;
+    padding: 11px 4px;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #5d422d;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(112, 67, 33, 0.04);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease;
+    will-change: transform, box-shadow;
+    outline: none;
+    user-select: none;
+}
+
+/* Hover state: Lifts smoothly with gold glow */
+.calendar-page .months button:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(180deg, #ffffff 0%, #fdf0db 100%);
+    border-color: #d49a38;
+    color: #8b4e18;
+    box-shadow: 0 6px 16px rgba(184, 126, 43, 0.22);
+}
+
+/* Click feedback */
+.calendar-page .months button:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Active Month State (Prestige Royal Thai Amber Jewel) */
+.calendar-page .months button.active {
+    background: linear-gradient(135deg, #874b1c 0%, #5d310e 100%);
+    color: #ffffff !important;
+    border-color: #d49a38;
+    box-shadow: 0 6px 18px rgba(112, 67, 33, 0.35),
+                0 0 0 2px rgba(212, 154, 56, 0.35);
+    transform: translateY(-2px);
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.calendar-page .months button.active:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(135deg, #975522 0%, #693710 100%);
+    border-color: #e8b356;
+    box-shadow: 0 8px 22px rgba(112, 67, 33, 0.42),
+                0 0 0 2.5px rgba(212, 154, 56, 0.45);
+}
+
+/* Subtle gold gleam line for active button */
+.calendar-page .months button.active::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 230, 175, 0.7), transparent);
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+/* =====================================
+   ค้นหาประเพณี (Modern Thai Search Bar)
+===================================== */
+
+.calendar-page .calendar-search-wrap {
+    position: relative;
+    width: 100%;
+    margin: 16px 0 20px;
+}
+
+.calendar-page .calendar-search-wrap .search-input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 19px;
+    height: 19px;
+    color: #b87e2b;
+    pointer-events: none;
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.calendar-page .calendar-search-wrap:focus-within .search-input-icon {
+    color: #d49a38;
+    transform: translateY(-50%) scale(1.15);
+}
+
+.calendar-page .container .search-input {
+    display: block;
+    width: 100%;
+    border: 1.5px solid rgba(220, 203, 183, 0.85);
+    border-radius: 14px;
+    background: linear-gradient(180deg, #ffffff 0%, #fdfaf6 100%);
+    padding: 13px 18px 13px 46px;
+    margin: 0;
+    font-family: 'Prompt', sans-serif;
+    font-size: 14px;
+    color: #432813;
+    outline: none;
+    box-shadow: 0 3px 10px rgba(112, 67, 33, 0.04);
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.calendar-page .container .search-input::placeholder {
+    color: #9c836d;
+    font-family: 'Prompt', sans-serif;
+    font-size: 13.5px;
+    transition: color 0.25s ease;
+}
+
+.calendar-page .container .search-input:hover {
+    border-color: #d49a38;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(184, 126, 43, 0.1);
+}
+
+.calendar-page .container .search-input:focus {
+    border-color: #d49a38;
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 4px rgba(212, 154, 56, 0.2),
+                0 8px 24px rgba(184, 126, 43, 0.14);
+}
+
+.calendar-page .container .search-input:focus::placeholder {
+    color: #b89b82;
+}
+
+@media (max-width: 680px) {
+    .calendar-page .months {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-page .months {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .calendar-page .region-info {
+        padding: 18px 20px;
+    }
+}
+
+/* =====================================
+   รายการประเพณี
+===================================== */
+
+.calendar-page .events-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 17px 0 10px;
+}
+
+.calendar-page .events-heading h3 {
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-weight: 600;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: #5d381c;
+}
+
+.calendar-page #event-count {
+    font-family: 'Prompt', sans-serif;
+    color: #96775a;
+    font-size: 12.5px;
+    font-weight: 500;
+}
+
+.calendar-page .events-list {
+    max-height: 520px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.calendar-page .event-card {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    border: 1.5px solid rgba(234, 217, 195, 0.85);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(112, 67, 33, 0.05);
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-page .event-card:hover {
+    transform: translateY(-4px);
+    border-color: #cca472;
+    box-shadow: 0 12px 28px rgba(112, 67, 33, 0.12), 0 2px 6px rgba(112, 67, 33, 0.04);
+}
+
+.calendar-page .event-emoji {
+    position: relative;
+    background: #f5e8d7;
+    border: 1.5px solid rgba(212, 154, 56, 0.25);
+    border-radius: 12px;
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(112, 67, 33, 0.08);
+}
+
+.calendar-page .event-emoji img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.calendar-page .event-card:hover .event-emoji img {
+    transform: scale(1.12);
+}
+
+/* Shimmer sweep effect on event thumbnail */
+.calendar-page .event-emoji::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.45),
+        transparent
+    );
+    transform: skewX(-25deg);
+    z-index: 2;
+    pointer-events: none;
+    transition: none;
+}
+
+.calendar-page .event-card:hover .event-emoji::before {
+    left: 200%;
+    transition: left 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.calendar-page .event-card h4 {
+    color: #4a3320;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-weight: 600;
+    font-size: 15.5px;
+    margin: 0 0 5px;
+    transition: color 0.3s ease;
+}
+
+.calendar-page .event-card:hover h4 {
+    color: #9b6a3d;
+}
+
+.calendar-page .event-card p {
+    font-family: 'Prompt', sans-serif;
+    font-size: 12px;
+    line-height: 1.75;
+    color: #6d5b4b;
+    margin: 0 0 6px;
+}
+
+.calendar-page .event-meta {
+    font-family: 'Prompt', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #8c6a43;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.calendar-page .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5.5px;
+    padding: 3px 10px 3px 8px;
+    border-radius: 6px;
+    background: rgba(246, 237, 222, 0.65);
+    border: 1px solid rgba(214, 186, 150, 0.45);
+    color: #6d4b29;
+    font-size: 11.5px;
+    line-height: 1.4;
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.calendar-page .event-card:hover .meta-item {
+    background: #ffffff;
+    border-color: #cca472;
+    color: #4a3018;
+    box-shadow: 0 2px 6px rgba(118, 80, 47, 0.08);
+}
+
+.calendar-page .meta-icon {
+    width: 13px;
+    height: 13px;
+    color: #b87e2b;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.calendar-page .event-card:hover .meta-icon {
+    color: #9c6014;
+    transform: scale(1.12);
+}
+
+.calendar-page .meta-divider {
+    color: #d8c2aa;
+    font-size: 11px;
+    user-select: none;
+}
+
+.calendar-page .no-events {
+    text-align: center;
+    padding: 45px 10px;
+    font-size: 13px;
+    color: #987d64;
+}
+
+.calendar-page .notice {
+    color: #482a12;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.75;
+    margin-top: 18px;
+    letter-spacing: 0.01em;
+}
+
+/* =====================================
+   Footer ปฏิทิน
+===================================== */
+
+.calendar-page .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ede3d6;
+    padding: 24px max(32px, calc((100% - 1380px) / 2));
+    border-top: 1px solid #e5d7c5;
+    font-size: 13px;
+    color: #6d6257;
+}
+
+.calendar-page .footer .brand {
+    font-size: 16px;
+}
+
+/* =====================================
+   Responsive เฉพาะเนื้อหา
+   เมนูใช้ Responsive จาก style.css
+===================================== */
+
+@media (max-width: 1080px) {
+    .calendar-page .layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 790px) {
+    .calendar-page .container {
+        padding: 25px 13px 50px;
+    }
+
+    .calendar-page .container .panel {
+        padding: 15px;
+    }
+
+    .calendar-page .legend {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .calendar-page .map-area {
+        min-height: 470px;
+    }
+
+    .calendar-page .hero.calendar-hero {
+        min-height: 245px;
+    }
+
+    .calendar-page .months {
+        gap: 4px;
+    }
+
+    .calendar-page .months button {
+        font-size: 10px;
+    }
+}

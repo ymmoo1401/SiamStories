@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ผู้จัดทำ - SIAM STORIES รากฐานของความเป็นไทย</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/user_session.css?v=2">
+</head>
+
+<body>
+
+    <main class="site">
+
+        <!-- Navigation -->
+        <nav class="nav">
+
+            <a class="brand" href="index.html">
+                <span class="brand-mark">❈</span>
+
+                <span>
+                    SIAM STORIES
+                    <small>รากฐานของความเป็นไทย</small>
+                </span>
+            </a>
+
+            <!-- SEARCH BAR -->
+            <div class="site-search" id="siteSearch">
+
+                <div class="search-box">
+
+                    <span class="search-symbol">⌕</span>
+
+                    <input
+                        type="search"
+                        id="siteSearchInput"
+                        placeholder="ค้นหาวัฒนธรรมไทย..."
+                        aria-label="ค้นหาข้อมูลทั้งเว็บไซต์"
+                        aria-controls="searchResults"
+                        aria-expanded="false"
+                        autocomplete="off">
+
+                </div>
+
+                <div class="search-results"
+                     id="searchResults"
+                     role="region"
+                     aria-label="ผลการค้นหา">
+                </div>
+
+            </div>
+
+            <!-- Hamburger Button for Mobile -->
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="เปิดเมนูนำทาง" aria-expanded="false" aria-controls="mainMenu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <div class="menu" id="mainMenu">
+                <a href="index.html">หน้าแรก</a>
+                <a href="isan.html">ภาคอีสาน</a>
+                <a href="central.html">ภาคกลาง</a>
+                <a href="east.html">ภาคเหนือ</a>
+                <a href="south.html">ภาคใต้</a>
+                <a href="calendar.html">ปฏิทินประเพณีไทย</a>
+                <a href="team.html" class="active" aria-current="page">ผู้จัดทำ</a>
+                <div class="nav-auth-wrapper">
+                    <a href="admin/login.php" class="user-circle-btn" aria-label="บัญชีผู้ใช้งาน">
+                        <svg class="user-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="user-red-tooltip">บัญชีผู้ใช้งาน</span>
+                    </a>
+                </div>
+            </div>
+
+        </nav>
+
+
+        <!-- แบนเนอร์สไลด์อัตโนมัติเหมือนหน้าแรกและหน้าปฏิทิน -->
+        <section class="hero hero-slider-section" id="home-hero" aria-label="ผู้จัดทำ">
+
+            <div class="banner-track" aria-hidden="true"></div>
+
+            <div class="banner-shade" aria-hidden="true"></div>
+
+            <div class="banner-content">
+
+                <span class="hero-eyebrow">✦ SIAM STORIES CREATIVE TEAM ✦</span>
+
+                <h1 class="hero-title">ผู้จัดทำ</h1>
+
+                <p class="hero-desc">
+                    <strong>คณะผู้จัดทำเว็บไซต์ รากฐานของความเป็นไทย</strong>
+                    <br>
+                    จัดทำขึ้นเพื่อเผยแพร่และสืบสานวัฒนธรรมไทย 4 ภาค
+                    ให้เข้าถึงได้ง่าย สวยงาม และทรงคุณค่า
+                </p>
+
+            </div>
+
+            <div class="banner-dots" role="tablist" aria-label="เลือกสไลด์ภาพ"></div>
+
+        </section>
+
+
+        <!-- Team Members Section -->
+        <div class="content" id="teamSection" style="padding-top: 36px; padding-bottom: 0;">
+            <div class="section-title">
+                <span style="font-size: 20px; color: var(--gold);">✦</span>
+                <h2>สมาชิกคณะผู้จัดทำ</h2>
+            </div>
+        </div>
+
+        <section class="team-grid">
+
+            <!-- Member 1 -->
+            <article class="person">
+
+                <div class="avatar" aria-label="ชนินทร์ แสนจันทร์">
+                    <img src="Img/contact-img/ชนินทร์ แสนจันทร์.jpg" alt="นายชนินทร์ แสนจันทร์" loading="lazy">
+                </div>
+
+                <h3>นายชนินทร์ แสนจันทร์</h3>
+
+                <p>
+                    <strong>รหัสประจำตัว:</strong> 67011213122
+                </p>
+
+                <span class="role-badge">สาขา สื่อนฤมิต</span>
+
+            </article>
+
+
+            <!-- Member 2 -->
+            <article class="person">
+
+                <div class="avatar" aria-label="ณัธกานต์ ว่องไว">
+                    <img src="Img/contact-img/ณัธกานต์ ว่องไว.jpg" alt="นางสาวณัธกานต์ ว่องไว" loading="lazy">
+                </div>
+
+                <h3>นางสาวณัธกานต์ ว่องไว</h3>
+
+                <p>
+                    <strong>รหัสประจำตัว:</strong> 67011213162
+                </p>
+
+                <span class="role-badge">สาขา สื่อนฤมิต</span>
+
+            </article>
+
+
+            <!-- Member 3 -->
+            <article class="person">
+
+                <div class="avatar" aria-label="โยสิยา ชารัมย์">
+                    <img src="Img/contact-img/โยสิยา ชารัมย์.jpg" alt="นางสาวโยสิยา ชารัมย์" loading="lazy">
+                </div>
+
+                <h3>นางสาวโยสิยา ชารัมย์</h3>
+
+                <p>
+                    <strong>รหัสประจำตัว:</strong> 67011213182
+                </p>
+
+                <span class="role-badge">สาขา สื่อนฤมิต</span>
+
+            </article>
+
+
+            <!-- Member 4 -->
+            <article class="person">
+
+                <div class="avatar" aria-label="อภิรักษ์ ภูถูกเงิน">
+                    <img src="Img/contact-img/อภิรักษ์ ภูถูกเงิน.jpg" alt="นายอภิรักษ์ ภูถูกเงิน" loading="lazy">
+                </div>
+
+                <h3>นายอภิรักษ์ ภูถูกเงิน</h3>
+
+                <p>
+                    <strong>รหัสประจำตัว:</strong> 67011213189
+                </p>
+
+                <span class="role-badge">สาขา สื่อนฤมิต</span>
+
+            </article>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <div class="brand">
+                <span class="brand-mark">❈</span>
+                SIAM STORIES
+            </div>
+
+            <div class="footer-emblem" aria-label="มรดกภูมิปัญญาไทย 4 ภาค">
+                <span class="emblem-sparkle">✦</span>
+                <span class="emblem-title">มรดกภูมิปัญญา ๔ ภาค</span>
+                <span class="emblem-dot">·</span>
+                <span class="emblem-subtitle">สืบสานความเป็นไทย</span>
+                <span class="emblem-sparkle">✦</span>
+            </div>
+
+            <span class="footer-motto">สำรวจวัฒนธรรมไทยทั้ง 4 ภาค</span>
+
+        </footer>
+
+    </main>
+
+    <!-- Back to Top Button -->
+    <button type="button" id="backToTop" class="back-to-top" aria-label="กลับสู่ด้านบน" title="กลับสู่ด้านบน">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="back-to-top-icon">
+            <path d="M6 15l6-6 6 6"/>
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/user_session.js?v=2"></script>
+    <script src="js/page_transition.js"></script>
+    <script src="js/js_index.js"></script>
+    <script src="js/jsvaindex.js"></script>
+    <script src="js/jsvaindex.js?v=3"></script>
+
+</body>
+
+</html>

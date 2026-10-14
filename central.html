@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รากฐานของความเป็นไทย | ภาคกลาง</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/central.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/user_session.css?v=2">
+</head>
+<body class="page-central">
+    <main class="site">
+        <!-- Navigation -->
+        <nav class="nav">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">❈</span>
+                <span>
+                    SIAM STORIES
+                    <small>รากฐานของความเป็นไทย</small>
+                </span>
+            </a>
+            <!-- ช่องค้นหาทั่วเว็บไซต์ -->
+            <div class="site-search" id="siteSearch">
+                <div class="search-box">
+                    <span class="search-symbol" aria-hidden="true">⌕</span>
+                    <input type="search" id="siteSearchInput"
+                           placeholder="ค้นหาวัฒนธรรมไทย..."
+                           aria-label="ค้นหาข้อมูลทั้งเว็บไซต์"
+                           aria-controls="searchResults"
+                           aria-expanded="false" autocomplete="off">
+                </div>
+                <div class="search-results" id="searchResults"
+                     role="region" aria-label="ผลการค้นหา"></div>
+            </div>
+            <!-- Hamburger Button for Mobile -->
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="เปิดเมนูนำทาง" aria-expanded="false" aria-controls="mainMenu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="menu" id="mainMenu">
+                <a href="index.html">หน้าแรก</a>
+                <a href="isan.html">ภาคอีสาน</a>
+                <a href="central.html" class="active" aria-current="page">ภาคกลาง</a>
+                <a href="east.html">ภาคเหนือ</a>
+                <a href="south.html">ภาคใต้</a>
+                <a href="calendar.html">ปฏิทินประเพณีไทย</a>
+                <a href="team.html">ผู้จัดทำ</a>
+                <div class="nav-auth-wrapper">
+                    <a href="admin/login.php" class="user-circle-btn" aria-label="บัญชีผู้ใช้งาน">
+                        <svg class="user-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="user-red-tooltip">บัญชีผู้ใช้งาน</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <!-- Hero -->
+        <section class="hero central">
+            <div class="hero-content">
+                <span class="hero-eyebrow">✦ อู่ข้าวอู่น้ำภาคกลาง · มรดกแห่งสายน้ำ ✦</span>
+                <h1>ภาคกลาง</h1>
+                <p>
+                    <strong>รากฐานแห่งอารยธรรมไทย</strong>
+                    <br>
+                     ดินแดนแห่งประวัติศาสตร์ ศิลปวัฒนธรรมและวิถีชีวิตที่หลากหลาย
+                </p>
+            </div>
+        </section>
+        <!-- หมวดหมู่ -->
+        <div class="tabs">
+            <a class="tab active" href="#tradition">ประเพณี</a>
+            <a class="tab" href="#food">อาหาร</a>
+            <a class="tab" href="#dress">การแต่งกาย</a>
+            <a class="tab" href="#wisdom">ภูมิปัญญา</a>
+        </div>
+        <!-- ประเพณี -->
+        <section class="content" id="tradition">
+            <div class="section-title">
+                <h2>ประเพณี</h2>
+            </div>
+            <div class="content-slider"
+                 data-content-slider
+                 role="region"
+                 aria-label="สไลด์ประเพณี">
+                <button class="slider-arrow slider-prev"
+                        type="button"
+                        aria-label="ประเพณีก่อนหน้า"
+                        aria-controls="tradition-track">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M15 5l-7 7 7 7"
+                              stroke="currentColor"
+                              stroke-width="1.7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <div class="slider-window">
+                    <div class="cards slider-track"
+                         id="tradition-track"
+                         data-slider-ready="true">
+                        <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีรับบัว (โยนบัว).jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีรับบัว(โยนบัว)</h3>
+                                <p>
+                                    ประชาชนโยนดอกบัวลงในเรือแห่หลวงพ่อโต เพื่อแสดงความศรัทธาทางพระพุทธศาสนา
+                                </p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีตักบาตรดอกไม้.jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีตักบาตรดอกไม้</h3>
+                                <p>
+                                    ประชาชนนำดอกเข้าพรรษามาถวายพระสงฆ์ในช่วงเทศกาลเข้าพรรษา
+                                </p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีลอยกระทงเผาเทียนเล่นไฟ.jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีลอยกระทงเผาเทียนเล่นไฟ</h3>
+                                <p>
+                                    งานลอยกระทงที่มีการจุดประทีป โคมไฟ และการแสดงทางวัฒนธรรม
+                                </p>
+                            </div>
+                        </article>
+                         <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีแห่เทียนพรรษา.jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีแห่เทียนพรรษา</h3>
+                                <p>
+                                    ขบวนแห่ต้นเทียนประดับสวยงามเพื่อนำไปถวายวัดในช่วงเข้าพรรษา
+                                </p>
+                            </div>
+                        </article>
+                         <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีกวนข้าวทิพย์.jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีกวนข้าวทิพย์</h3>
+                                <p>
+                                    ประเพณีทางพระพุทธศาสนาที่ชาวบ้านร่วมกันกวนข้าวมธุปายาสเพื่อนำไปถวายพระสงฆ์ สะท้อนความสามัคคีและความศรัทธาของชุมชน
+                                </p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีสงกรานต์พระประแดง.jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีสงกรานต์พระประแดง</h3>
+                                <p>
+                                    เทศกาลสงกรานต์ที่สืบทอดวัฒนธรรมชาวไทยเชื้อสายมอญ มีขบวนแห่และการละเล่นพื้นบ้าน
+                                </p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีตักบาตรเทโว.jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีตักบาตรเทโว</h3>
+                                <p>
+                                    ทำบุญตักบาตรในช่วงออกพรรษา เพื่อระลึกถึงเหตุการณ์พระพุทธเจ้าเสด็จลงจากสวรรค์
+                                </p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีแข่งเรือยาว.jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีแข่งเรือยาว</h3>
+                                <p>
+                                    การแข่งขันเรือพื้นบ้านหลังฤดูน้ำหลาก แสดงถึงความสามัคคีของชุมชน
+                                </p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img"
+                                 style="background-image: url('Img/central-img/ประเพณีแห่เจ้าพ่อเจ้าแม่ปากน้ำโพ.jpg');">
+                            </div>
+                            <div class="card-body">
+                                <h3>ประเพณีแห่เจ้าพ่อเจ้าแม่ปากน้ำโพ</h3>
+                                <p>
+                                    เทศกาลสำคัญของชาวไทยเชื้อสายจีน มีขบวนแห่มังกร สิงโต และการแสดงศิลปวัฒนธรรม
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="slider-arrow slider-next"
+                        type="button"
+                        aria-label="ประเพณีถัดไป"
+                        aria-controls="tradition-track">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 5l7 7-7 7"
+                              stroke="currentColor"
+                              stroke-width="1.7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+        <!-- อาหาร -->
+        <section class="content" id="food">
+            <div class="section-title">
+                <h2>อาหารท้องถิ่น</h2>
+            </div>
+            <p class="food-intro">
+                เสน่ห์รสชาติอีสาน 
+            </p>
+            <div class="food-showcase"
+                 role="region"
+                 aria-roledescription="carousel"
+                 aria-label="อาหารขึ้นชื่อภาคอีสาน">
+                <div class="food-stage">
+                    <div class="food-deck" id="food-deck">
+                        <article class="food-slide"
+                                 id="food-slide-0"
+                                 role="group"
+                                 aria-roledescription="slide"
+                                 aria-label="1 จาก 3: ต้มยำกุ้ง">
+                            <figure class="food-photo">
+                                <img
+                                    src="Img/central-img/ต้มยำกุ้ง.jpg"
+                                    alt="ต้มยำกุ้ง"
+                                    decoding="async">
+                                <figcaption>central SIGNATURE · 01</figcaption>
+                            </figure>
+                            <div class="food-copy">
+                                <span class="food-eyebrow">
+                                    รสชาติแห่งภาคกลาง
+                                     / 01
+                                </span>
+                                <h3>ต้มยำกุ้ง</h3>
+                                <p>
+                                    อาหารประเภทต้มที่มีรสเปรี้ยว เผ็ด และกลิ่นหอมสมุนไพร เช่น ตะไคร้ ข่า ใบมะกรูด โดยใช้กุ้งเป็นวัตถุดิบหลัก
+                                </p>
+                                <div class="food-tags">
+                                    <span>รสจัดจ้าน</span>
+                                    <span>อาหารประจำชาติ</span>
+                                    <span>กินคู่ข้าวสวยร้อนๆ</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="food-slide"
+                                 id="food-slide-1"
+                                 role="group"
+                                 aria-roledescription="slide"
+                                 aria-label="2 จาก 3: แกงเขียวหวาน"
+                                 hidden inert>
+                            <figure class="food-photo">
+                                <img
+                                    src="Img/central-img/แกงเขียวหวาน.jpg"
+                                    alt="แกงเขียวหวาน"
+                                    decoding="async">
+                                <figcaption>centralSIGNATURE · 02</figcaption>
+                            </figure>
+                            <div class="food-copy">
+                                <span class="food-eyebrow">
+                                    รสชาติแห่งภาคกลาง / 02
+                                </span>
+                                <h3>แกงเขียวหวาน</h3>
+                                <p>
+                                    แกงกะทิที่มีรสหวานมันและเผ็ดหอมจากพริกแกงเขียวหวาน นิยมใส่เนื้อไก่ มะเขือ และใบโหระพา
+                                </p>
+                                <div class="food-tags">
+                                    <span>กระทิหอมๆ</span>
+                                    <span>รสชาติหวานมัน</span>
+                                    <span>หอมเครื่องแกง</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="food-slide"
+                                 id="food-slide-2"
+                                 role="group"
+                                 aria-roledescription="slide"
+                                 aria-label="3 จาก 3: ผัดไทย"
+                                 hidden inert>
+                            <figure class="food-photo">
+                                <img
+                                    src="Img/central-img/ผัดไทย.jpg"
+                                    alt="ผัดไทย"
+                                    decoding="async">
+                                <figcaption>central SIGNATURE · 03</figcaption>
+                            </figure>
+                            <div class="food-copy">
+                                <span class="food-eyebrow">
+                                    รสชาติแห่งภาคกลาง / 03
+                                </span>
+                                <h3>ผัดไทย</h3>
+                                <p>
+                                    อาหารประเภทเส้นผัดที่มีรสเปรี้ยว หวาน และเค็มจากซอสมะขาม ใส่ไข่ เต้าหู้ ถั่วงอก และกุ้ง
+                                </p>
+                                <div class="food-tags">
+                                    <span>เปรี้ยว</span>
+                                    <span>หวาน</span>
+                                    <span>เค็ม</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="food-controls">
+                    <div class="food-menu"
+                         role="group"
+                         aria-label="เลือกเมนูอาหาร">
+                        <button class="food-choice" type="button"
+                                data-food-index="0"
+                                aria-controls="food-slide-0"
+                                aria-pressed="true">ต้มยำกุ้ง</button>
+                        <button class="food-choice" type="button"
+                                data-food-index="1"
+                                aria-controls="food-slide-1"
+                                aria-pressed="false">แกงเขียวหวาน</button>
+                        <button class="food-choice" type="button"
+                                data-food-index="2"
+                                aria-controls="food-slide-2"
+                                aria-pressed="false">ผัดไทย</button>
+                    </div>
+                    <div class="food-arrows">
+                        <button class="food-arrow" type="button"
+                                data-food-prev
+                                aria-label="อาหารก่อนหน้า"
+                                aria-controls="food-deck">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 aria-hidden="true">
+                                <path d="M15 5l-7 7 7 7"
+                                      stroke="currentColor"
+                                      stroke-width="1.7"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <span class="food-counter" aria-hidden="true">
+                            01 / 03
+                        </span>
+                        <button class="food-arrow" type="button"
+                                data-food-next
+                                aria-label="อาหารถัดไป"
+                                aria-controls="food-deck">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 aria-hidden="true">
+                                <path d="M9 5l7 7-7 7"
+                                      stroke="currentColor"
+                                      stroke-width="1.7"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <p class="food-sr-only"
+                   aria-live="polite"
+                   aria-atomic="true"
+                   data-food-status></p>
+            </div>
+           
+        </section>
+        <!-- การแต่งกาย -->
+        <section class="content" id="dress">
+            <div class="section-title">
+                <h2>การแต่งกาย</h2>
+            </div>
+            <div class="detail-grid culture-grid">
+                <article class="panel dress-card" data-culture-reveal>
+                    <figure class="culture-photo">
+                        <!-- รูปที่ 1: เปลี่ยน src เป็นรูปของคุณ -->
+                        <img src="Img/central-img/ชุดไทยจักรี.jpg"
+                             alt="การแต่งกายด้วยผ้าไหมและผ้าพื้นเมืองอีสาน"
+                             loading="lazy"
+                             decoding="async">
+                        <span class="culture-label">ผ้าและวิถีชีวิต</span>
+                    </figure>
+                    <div class="culture-copy">
+                        <span class="culture-kicker">เสน่ห์แห่งความเป็นไทย</span>
+                        <h3>ความงานของวัฒนธรรมการแต่งกาย</h3>
+                        <p>
+                            เครื่องแต่งกายไทยที่มีความสง่างาม ผู้หญิงนุ่งผ้าซิ่นยกจีบหน้านางและห่มสไบ นิยมสวมใส่ในงานพิธีและโอกาสสำคัญ
+                        </p>
+                    </div>
+                </article>
+                <article class="panel dress-card" data-culture-reveal>
+                    <figure class="culture-photo">
+                        <!-- รูปที่ 2: เปลี่ยน src เป็นรูปของคุณ -->
+                        <img src="Img/central-img/ชุดพื้นบ้านโจงกระเบน.jpg"
+                             alt="รายละเอียดลวดลายผ้าทอพื้นเมืองอีสาน"
+                             loading="lazy"
+                             decoding="async">
+                        <span class="culture-label">ไทยในอดีต</span>
+                    </figure>
+                    <div class="culture-copy">
+                        <span class="culture-kicker">สีสันและลวดลาย</span>
+                        <h3>เอกลักษณ์ของคนยุคก่อน</h3>
+                        <p>
+                            การแต่งกายพื้นบ้านที่เรียบง่ายและคล่องตัว ผู้ชายนิยมนุ่งโจงกระเบน ส่วนผู้หญิงอาจสวมเสื้อคอกระเช้าคู่กับโจงกระเบน
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- ภูมิปัญญา -->
+        <section class="content" id="wisdom">
+            <div class="section-title">
+                <h2>ภูมิปัญญาท้องถิ่น</h2>
+            </div>
+            <div class="detail-grid culture-grid">
+                <article class="panel wisdom-card" data-culture-reveal>
+                    <figure class="culture-photo">
+                        <!-- รูปที่ 3: เปลี่ยน src เป็นรูปของคุณ -->
+                        <img src="Img/central-img/เครื่องปั้นดินเผาเกาะเกร็ด.jpg"
+                             alt="งานหัตถกรรมในชุใชนเกาะเกร็ด"
+                             loading="lazy"
+                             decoding="async">
+                        <span class="culture-label">งานฝีมือจากชุมชน</span>
+                    </figure>
+                    <div class="culture-copy">
+                        <span class="culture-kicker">จากมือสู่มรดก</span>
+                        <h3>หัตถกรรมพื้นบ้าน</h3>
+                        <p>
+                            หัตถกรรมพื้นบ้านของชาวมอญที่นำดินเหนียวมาปั้นเป็นภาชนะและตกแต่งลวดลายฉลุอย่างประณีต สืบทอดฝีมือจากบรรพบุรุษ
+                        </p>
+                    </div>
+                </article>
+                <article class="panel wisdom-card" data-culture-reveal>
+                    <figure class="culture-photo">
+                        <!-- รูปที่ 4: เปลี่ยน src เป็นรูปของคุณ -->
+                        <img src="Img/central-img/การจักสานไม้ไผ่.jpg"
+                             alt="ภูมิปัญญาและการดำรงชีวิตของชุมชนภาคกลาง"
+                             loading="lazy"
+                             decoding="async">
+                        <span class="culture-label">อยู่ร่วมกับธรรมชาติ</span>
+                    </figure>
+                    <div class="culture-copy">
+                        <span class="culture-kicker">ความรู้จากวิถีชีวิต</span>
+                        <h3>ภูมิปัญญาการดำรงชีวิต</h3>
+                        <p>
+                            ภูมิปัญญาการนำไม้ไผ่มาจักตอกและสานเป็นเครื่องใช้ในชีวิตประจำวัน เช่น ตะกร้า กระบุง และกระจาด สะท้อนความคิดสร้างสรรค์ของชุมชน
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="brand">
+                <span class="brand-mark">❈</span>
+                SIAM STORIES
+            </div>
+            <div class="footer-emblem" aria-label="มรดกภูมิปัญญาไทย 4 ภาค">
+                <span class="emblem-sparkle">✦</span>
+                <span class="emblem-title">มรดกภูมิปัญญา ๔ ภาค</span>
+                <span class="emblem-dot">·</span>
+                <span class="emblem-subtitle">สืบสานความเป็นไทย</span>
+                <span class="emblem-sparkle">✦</span>
+            </div>
+            <span class="footer-motto">สำรวจวัฒนธรรมไทยทั้ง 4 ภาค</span>
+        </footer>
+    </main>
+   
+    <!-- Back to Top Button -->
+    <button type="button" id="backToTop" class="back-to-top" aria-label="กลับสู่ด้านบน" title="กลับสู่ด้านบน">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="back-to-top-icon">
+            <path d="M6 15l6-6 6 6"/>
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/user_session.js?v=2"></script>
+    <script src="js/page_transition.js"></script>
+    <script src="js/jsvaindex.js"></script>
+    <script src="js/styleIsan.js?v=2"></script>
+    <script src="js/db_region.js?v=2"></script>
+</body>
+</html>
